@@ -1,10 +1,15 @@
 .products-page{
   text-align: center;
 }
+h1{
+  font-family: "Libre Baskerville", serif;
+  font-size: 2.2em;
+}
 .products {
   position: relative;
   text-align: center;
   overflow: hidden;
+  margin-top: 50px;
 }
 
 .products::before {
@@ -40,6 +45,9 @@
 
 .products-list h2 {
   padding: 20px;
+}
+.tab-buttons button{
+  font-size: 1.4em;
 }
 
 

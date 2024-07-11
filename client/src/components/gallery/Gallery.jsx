@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Gallery.css";
-import { Logo } from "../../logo/Logo";
-import { Footer } from "../footer/Footer";
+import { Logo2 } from "../logo2/Logo2";
+import { Footer } from "../layout/footer/Footer";
 import { ImageContainer } from "./SingleImage";
-import { useGetImages } from "../../../hooks/useGetPhotosGallery";
+import { useGetImages } from "../../hooks/useGetPhotosGallery";
 
 export const Gallery = () => {
   const { images } = useGetImages();
@@ -19,7 +19,7 @@ export const Gallery = () => {
   return (
     <>
       <div className="gallery-div" id="gallery">
-        <Logo />
+        <Logo2 />
         <h1>GALERIJA</h1>
         <div className="tab-buttons">
           <button onClick={() => handleTabClick('hair')} className={activeTab === 'hair' ? 'active' : ''}>USLUGA</button>

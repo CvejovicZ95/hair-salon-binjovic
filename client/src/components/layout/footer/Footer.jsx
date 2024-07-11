@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { Logo } from "../../logo/Logo";
+import { Logo2 } from "../../logo2/Logo2";
 import { MdLocationPin } from "react-icons/md";
 import { IoLogoInstagram } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
@@ -8,7 +8,7 @@ import { MdPhone } from "react-icons/md";
 export const Footer=()=>{
   return(
     <footer className="footer" id="footer">
-      <Logo/>
+      <Logo2/>
       <div className="footer-all-sections">
         <div className="footer-section1">
           <div>

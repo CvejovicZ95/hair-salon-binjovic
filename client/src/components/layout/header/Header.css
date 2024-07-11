@@ -113,6 +113,10 @@
   opacity: 0.6;
   font-family: Lucida Handwriting;
 }
+a{
+  text-decoration: none;
+}
+
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .header {

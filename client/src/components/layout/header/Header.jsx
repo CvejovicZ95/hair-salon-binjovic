@@ -58,7 +58,7 @@ export const Header = () => {
         <div className="menu-toggle" onClick={toggleNav}>
           {isOpen ? (
             <div className="close-icon">
-              <MdClose style={{ fontSize: "30px", marginBottom: "10px" }} />
+              <MdClose style={{ fontSize: "25px" }} />
             </div>
           ) : (
             <>
@@ -72,7 +72,7 @@ export const Header = () => {
           <ul>
             <li onClick={() => handleNavClick("salon")}>Salon</li>
             <li onClick={() => handleNavClick("services")}>Usluge</li>
-            <li onClick={() => handleNavClick("products")}>Preparati</li>
+            <Link to={"/products"}><li onClick={() => handleNavClick("products")}>Preparati</li></Link>
             <li onClick={() => handleNavClick("team")}>Naš Tim</li>
             <li onClick={() => handleNavClick("footer")}>Kontakt</li>
           </ul>

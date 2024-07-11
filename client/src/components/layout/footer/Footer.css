@@ -46,6 +46,10 @@
   padding: 50px;
 }
 
+.map {
+  margin: auto;
+}
+
 @media (max-width: 1199px) and (min-width: 1025px) {
 
   .footer-section1,
@@ -56,6 +60,11 @@
 
   .sponsor-logo img {
     width: 180px;
+  }
+
+  .map-iframe {
+    width: 800px;
+    height: 350px;
   }
 }
 
@@ -83,6 +92,11 @@
 
   .sponsor-logo img {
     width: 150px;
+  }
+
+  .map-iframe {
+    width: 600px;
+    height: 250px;
   }
 }
 
@@ -116,5 +130,10 @@
 
   .react-icon {
     font-size: 28px;
+  }
+
+  .map-iframe {
+    width: 350px;
+    height: 200px;
   }
 }

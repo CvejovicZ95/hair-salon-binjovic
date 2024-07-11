@@ -163,7 +163,7 @@
 
   .nav-bar.open {
     display: block;
-    margin-top: 150px;
+    margin-top: 153px;
     background-color: rgba(136, 136, 136, 0.8);
     transition: 0.9s ease;
   }
@@ -247,7 +247,7 @@
 
   .nav-bar.open {
     display: block;
-    margin-top: 150px;
+    margin-top: 153px;
     background-color: rgba(136, 136, 136, 0.8);
     transition: 0.9s ease;
   }
@@ -333,7 +333,7 @@
 
   .nav-bar.open {
     display: block;
-    margin-top: 100px;
+    margin-top: 103px;
     background-color: rgba(136, 136, 136, 0.8);
     transition: 0.9s ease;
   }

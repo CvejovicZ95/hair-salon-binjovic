@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { Logo } from "../../logo/Logo";
+import { scrollToTop } from "../../../hooks/useScrollToTop";
 import "./Header.css";
 
 export const Header = () => {
@@ -45,13 +47,13 @@ export const Header = () => {
       <div className="nav">
         <div className="logo">
           <Logo />
-          <img
+          <Link to={"/gallery"}><img
             src="gallery.png"
             width={"250px"}
             alt="gallery"
             className="gallery"
-            onClick={() => handleNavClick("gallery")}
-          />
+            onClick={scrollToTop}
+          /></Link>
         </div>
         <div className="menu-toggle" onClick={toggleNav}>
           {isOpen ? (

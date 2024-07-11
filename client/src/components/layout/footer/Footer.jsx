@@ -33,9 +33,14 @@ export const Footer=()=>{
           </div>
         </div>
       </div>
+      <div className="map">
+            <iframe  className="map-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11477.614359308871!2d20.9084215!3d44.0130538!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475721236ab91de5%3A0x4f0116354f93267e!2sFRIZERSKI%20SALON%20BINJOVI%C4%86!5e0!3m2!1sen!2srs!4v1716200799517!5m2!1sen!2srs" width={"1000px"} height={"300px"} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="map"></iframe>
+          </div>
       <div className="sponsor-logo">
-          <img src="kerastase2.png" alt="kerastase" width={"200px"}/>
-          <img src="loreal2.png" alt="kerastase" width={"200px"}/>
+          <div>
+            <img src="kerastase2.png" alt="kerastase" width={"200px"}/>
+            <img src="loreal2.png" alt="kerastase" width={"200px"}/>
+          </div>
         </div>
       <p>&copy; All Rights Reserved </p>
     </footer>

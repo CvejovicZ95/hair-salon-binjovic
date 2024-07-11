@@ -1,5 +1,5 @@
 import "./Logo.css";
-
+import { Link } from 'react-router-dom'
 export const Logo =()=>{
 
   const handleLogoClick = () => {
@@ -7,13 +7,13 @@ export const Logo =()=>{
   }
 
   return(
-    <img
+    <Link to={"/"}><img
       className="logo-binjovic" 
       src="binjovic.png"
       width="150px"
       alt="logo"
       onClick={handleLogoClick}
-
     />
+    </Link>
   )
 }

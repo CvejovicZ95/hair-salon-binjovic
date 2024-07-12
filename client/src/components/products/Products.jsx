@@ -25,7 +25,6 @@ export const Products = () => {
               className="product-img"
               src="kerastase.png"
               alt="kerastase"
-              width={"600px"}
             />
           )}
           {activeTab === 'loreal' && (
@@ -33,7 +32,6 @@ export const Products = () => {
               className="product-img"
               src="loreal2.png"
               alt="loreal"
-              width={"600px"}
             />
           )}
           <div className="products-list">

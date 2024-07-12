@@ -29,9 +29,6 @@ export const Header = () => {
         </video>
       </div>
       <Nav />
-      <div className="heading">
-        <h1>Hair Salon Binjović House of Style</h1>
-      </div>
     </header>
   );
 };

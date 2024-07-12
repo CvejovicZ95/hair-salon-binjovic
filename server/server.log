@@ -20,3 +20,23 @@
 {"level":"info","message":"Image uploaded!","timestamp":"2024-07-11T09:44:57.587Z"}
 {"level":"info","message":"Image uploaded!","timestamp":"2024-07-11T09:45:02.508Z"}
 {"level":"info","message":"Image uploaded!","timestamp":"2024-07-11T09:45:07.342Z"}
+{"level":"error","message":"Error adding product:","timestamp":"2024-07-12T09:42:15.873Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:42:35.779Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:43:05.184Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:43:21.967Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:43:41.861Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:43:54.464Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:44:20.683Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:44:34.298Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:44:48.627Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:45:21.008Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:45:35.776Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:45:46.167Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-12T09:46:01.573Z"}
+{"level":"error","message":"Product not found:","timestamp":"2024-07-12T09:51:20.566Z"}
+{"level":"error","message":"Error updating product:","timestamp":"2024-07-12T09:51:20.567Z"}
+{"buffer":{"data":[102,144,251,89,174,22,155,171,215,218,133,165],"type":"Buffer"},"level":"info","message":"Product updated successfully:","timestamp":"2024-07-12T09:53:42.980Z"}
+{"buffer":{"data":[102,144,251,89,174,22,155,171,215,218,133,165],"type":"Buffer"},"level":"info","message":"Product updated successfully:","timestamp":"2024-07-12T09:53:56.400Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-12T09:54:25.012Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-12T09:54:37.334Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-12T09:56:54.433Z"}

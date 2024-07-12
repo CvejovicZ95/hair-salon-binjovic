@@ -12,7 +12,7 @@ export const Products = () => {
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
     products.forEach(product => {
-      const categoryName = product.name; 
+      const categoryName = product.name;
       if (!groupedProducts[categoryName]) {
         groupedProducts[categoryName] = [];
       }
@@ -27,11 +27,7 @@ export const Products = () => {
     <div className="products-page">
       <Logo2 />
       <h1>PREPARATI</h1>
-      <img
-        className="product-img"
-        src="kerastase.png"
-        alt="kerastase"
-      />
+      <img className="product-img" src="kerastase.png" alt="kerastase" />
       <div className="products" id="products">
         {loading ? (
           <p>Loading...</p>
@@ -40,15 +36,17 @@ export const Products = () => {
         ) : (
           <div className="products-list">
             {Object.keys(groupedProducts).map(categoryName => (
-              <div key={categoryName}>
+              <div key={categoryName} className="category-section">
                 <h2>{categoryName}</h2>
-                {groupedProducts[categoryName].map(product => (
-                  <div key={product._id} className="product-item">
-                    <p>{product.preparate}</p>
-                    <p>Količina: {product.quantity}</p>
-                    <p>Cena: {product.price}</p>
-                  </div>
-                ))}
+                <div className="category-products">
+                  {groupedProducts[categoryName].map(product => (
+                    <div key={product._id} className="product-item">
+                      <p>{product.preparate} ({product.quantity})</p>
+                      <p>Cena: {product.price} RSD</p>
+                      <button className="buy-btn">Kupi</button>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

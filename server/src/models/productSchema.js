@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Kerastase', 'Loreal'],
+    enum: ['kerastase', 'loreal'],
   },
   quantity: {
     type: String,

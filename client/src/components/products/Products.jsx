@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Logo2 } from "../logo2/Logo2";
 import { Footer } from "../layout/footer/Footer";
+import { useGetProductsByCategory } from "../../hooks/useGetProducts";
 import "./Products.css";
 
 export const Products = () => {
-  const [activeTab, setActiveTab] = useState('kerastase'); 
+  const [activeTab, setActiveTab] = useState('kerastase');
+  const { productsByCategory, loading, error } = useGetProductsByCategory(activeTab);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -35,9 +37,20 @@ export const Products = () => {
             />
           )}
           <div className="products-list">
-            {[...Array(60)].map((_, index) => (
-              <h2 key={index}>{activeTab === 'kerastase' ? `Kerastase Preparat ${index + 1}` : `L'Oreal Preparat ${index + 1}`}</h2>
-            ))}
+            {loading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>Error fetching products.</p>
+            ) : (
+              productsByCategory.map(product => (
+                <div key={product._id} className="product-item">
+                  <h2>{product.name}</h2>
+                  <p>{product.preparate}</p>
+                  <p>Kolicina: {product.quantity}</p>
+                  <p>Cena: {product.price}</p>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>

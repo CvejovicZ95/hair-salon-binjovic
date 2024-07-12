@@ -3,13 +3,12 @@
 }
 h1{
   font-family: "Libre Baskerville", serif;
-  font-size: 2.2em;
+  font-size: 2.8em;
 }
 .products {
   position: relative;
   text-align: center;
   overflow: hidden;
-  margin-top: 50px;
 }
 
 .products::before {
@@ -47,7 +46,8 @@ h1{
   padding: 20px;
 }
 .tab-buttons button{
-  font-size: 1.4em;
+  font-size: 1.8em;
+  color: aqua;
 }
 .product-img {
   width: 100%;

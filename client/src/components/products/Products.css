@@ -1,11 +1,50 @@
 .products-page {
   text-align: center;
   font-family: "Libre Baskerville", serif;
+  padding: 20px;
 }
 
-h1 {
+.products-page h1 {
   font-size: 2.8em;
   margin-bottom: 20px;
+  color: #333;
+}
+.categories select {
+  font-size: 1.2em;
+  padding: 10px 15px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.categories select:hover {
+  background-color: #f0f0f0;
+}
+
+.categories select:focus {
+  outline: none;
+  border-color: gold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.categories select option {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 15px;
+}
+
+/* Stilizacija opcija na hover */
+.categories select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Stilizacija selektovane opcije */
+.categories select option:checked {
+  background-color: gold;
+  color: white;
 }
 
 .products {
@@ -13,19 +52,8 @@ h1 {
   text-align: center;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
+  margin-bottom: 100px;
 }
-
-.products::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  z-index: -1;
-}
-
 .products h1 {
   text-align: center;
   display: inline-block;
@@ -37,10 +65,9 @@ h1 {
 
 .products-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
 }
 
 .category-section {
@@ -51,14 +78,6 @@ h1 {
   padding: 20px;
   font-size: 2.3em;
   color: black;
-  
-}
-
-.category-products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
 }
 
 .product-item {
@@ -72,10 +91,10 @@ h1 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: white;
   overflow: hidden;
-  background-color: rgb(189, 189, 189);
-  width: 250px;
+  background-color: rgb(255, 255, 255);
   font-family: "Libre Baskerville", serif;
   z-index: 1;
+  width: 250px;
 }
 
 .product-item::before {
@@ -95,14 +114,13 @@ h1 {
 
 .product-item p {
   margin: 5px 0;
-  font-size: 1.1em;
+  font-size: 1em;
   color: black;
   font-weight: 500;
   position: relative;
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
   padding: 2px;
-  font-family:sans-serif;
 }
 
 .product-img {
@@ -111,22 +129,25 @@ h1 {
   height: auto;
   margin-bottom: 20px;
 }
+
 .buy-btn {
-  background-color: rgb(65, 65, 65); /* Zelena boja pozadine */
-  z-index: 3;
-  color: white; /* Boja teksta */
-  padding: 10px 20px; /* Podešavanje paddinga */
-  font-size: 1em; /* Veličina fonta */
-  border: none; /* Uklanjanje ivice */
-  border-radius: 5px; /* Zaobljeni ivici */
-  cursor: pointer; 
-  transition: background-color 0.3s ease; /* Animacija boje pozadine */
+  font-size: 1.5em;
+  background: transparent;
+  width: 70%;
+  max-width: 600px;
+  padding: 10px;
+  margin: 20px auto 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Libre Baskerville";
+  transition: 0.5s;
+  border: 2px solid #333;
+  border-radius: 10px;
 }
 
 .buy-btn:hover {
-  background-color: rgb(99, 99, 99); /* Promena boje pozadine prilikom prelaska mišem */
+  transform: scale(1.1);
 }
-
 
 @media (max-width: 1199px) and (min-width: 1025px) {
   .category-products {
@@ -149,6 +170,10 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .category-btn{
+    width: 90%;
+    font-size: 1.2em;
+  }
   .product-img {
     width: 100%;
     max-width: 300px;
@@ -158,8 +183,8 @@ h1 {
 
 @media (max-width: 480px) {
   .products::before {
-    background-image: none;
-    background-color: azure;
+    background-image: none; /* Uklanjanje pozadinske slike za manje ekrane */
+    background-color: azure; /* Promena boje pozadine za manje ekrane */
   }
 
   .product-img {

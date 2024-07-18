@@ -1,6 +1,6 @@
 import { Header } from "./header/Header";
 import { About } from "./about/About";
-import { Services } from "./services/Services";
+import { LayoutServices } from "./layoutServices/LayoutServices";
 import { Team } from "./team/Team";
 import { Footer } from "./footer/Footer";
 import "./Layout.css";
@@ -10,7 +10,7 @@ export const Layout = ()=>{
     <div className="App">
       <Header/>
       <About/>
-      <Services/>
+      <LayoutServices/>
       <Team/>
       <Footer/>
     </div>

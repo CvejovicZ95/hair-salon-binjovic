@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Logo2 } from "../logo2/Logo2";
 import { Footer } from "../layout/footer/Footer";
 import { Link } from "react-router-dom";
@@ -7,23 +8,38 @@ import "./Services.css";
 
 export const Services = () => {
     const { groupedServices } = useGetServices();
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    const handleChangeCategory = (event) => {
+        setSelectedCategory(event.target.value);
+    };
 
     return (
         <div className="services-page">
             <Logo2 />
             <h1>CENOVNIK I USLUGE</h1>
+            <div className="categories">
+                <select
+                    value={selectedCategory}
+                    onChange={handleChangeCategory}
+                    className="category-select"
+                >
+                    <option value="">Izaberite kategoriju</option>
+                    {Object.keys(groupedServices).map((category) => (
+                        <option key={category} value={category}>
+                            {category}
+                        </option>
+                    ))}
+                </select>
+            </div>
             <div className="services-list">
-                {Object.keys(groupedServices).map((category) => (
-                    <div key={category} className="service-category">
-                        <h2>{category}</h2>
-                        {groupedServices[category].map((service) => (
-                            <div key={service._id} className="service-item">
-                                <h3>{service.name}</h3>
-                                <p>{service.price} RSD</p>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                {selectedCategory &&
+                    groupedServices[selectedCategory].map((service) => (
+                        <div key={service._id} className="service-item">
+                            <h3>{service.name}</h3>
+                            <p>{service.price} RSD</p>
+                        </div>
+                    ))}
             </div>
             <Link to={"/reservation"}>
                 <button onClick={scrollToTop} className="service-booking-btn">
@@ -34,3 +50,4 @@ export const Services = () => {
         </div>
     );
 };
+

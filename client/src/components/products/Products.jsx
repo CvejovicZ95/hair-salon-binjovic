@@ -5,9 +5,7 @@ import { useGetProductsByCategory } from "../../hooks/useGetProducts";
 import "./Products.css";
 
 export const Products = () => {
-  // eslint-disable-next-line
-  const [activeTab, setActiveTab] = useState('kerastase');
-  const { productsByCategory, loading, error } = useGetProductsByCategory(activeTab);
+  const { productsByCategory, loading, error } = useGetProductsByCategory('kerastase');
 
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
@@ -22,12 +20,28 @@ export const Products = () => {
   };
 
   const groupedProducts = groupProductsByCategoryName(productsByCategory);
+  const [selectedCategory, setSelectedCategory] = useState('kerastase');
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
 
   return (
     <div className="products-page">
       <Logo2 />
       <h1>PREPARATI</h1>
-      <img className="product-img" src="kerastase.png" alt="kerastase" />
+      <div className="categories">
+        <select
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+          className="category-select"
+        >
+          <option value="kerastase">Molimo izaberite kategoriju</option>
+          {Object.keys(groupedProducts).map(categoryName => (
+            <option key={categoryName} value={categoryName}>{categoryName}</option>
+          ))}
+        </select>
+      </div>
       <div className="products" id="products">
         {loading ? (
           <p>Loading...</p>
@@ -35,18 +49,11 @@ export const Products = () => {
           <p>Error fetching products.</p>
         ) : (
           <div className="products-list">
-            {Object.keys(groupedProducts).map(categoryName => (
-              <div key={categoryName} className="category-section">
-                <h2>{categoryName}</h2>
-                <div className="category-products">
-                  {groupedProducts[categoryName].map(product => (
-                    <div key={product._id} className="product-item">
-                      <p>{product.preparate} {product.quantity}</p>
-                      <p>Cena: {product.price} RSD</p>
-                      <button className="buy-btn">Kupi</button>
-                    </div>
-                  ))}
-                </div>
+            {groupedProducts[selectedCategory] && groupedProducts[selectedCategory].map(product => (
+              <div key={product._id} className="product-item">
+                <p>{product.preparate} {product.quantity}</p>
+                <p>{product.price} RSD</p>
+                <button className="buy-btn">Naruči</button>
               </div>
             ))}
           </div>

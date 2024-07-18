@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./Services.css";
+import "./LayoutServices.css";
 import { scrollToTop } from "../../../hooks/useScrollToTop";
 
-export const Services = () => {
+export const LayoutServices = () => {
   return (
     <div className="services" id="services">
       <h1>USLUGE</h1>

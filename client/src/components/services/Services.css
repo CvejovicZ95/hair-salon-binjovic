@@ -1,4 +1,79 @@
-.services-page{
+.services-page {
     text-align: center;
-    margin-top: 100px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    font-family: "Libre Baskerville", serif;
+}
+
+.services-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.service-item {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.service-item p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.service-booking-btn {
+    font-size: 1.5em;
+    background: transparent;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 50px auto 20px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Libre Baskerville";
+    transition: 0.5s;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+.service-booking-btn:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+    .service-booking-btn {
+        font-size: 2em;
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .service-booking-btn {
+        font-size: 2.4em;
+        width: 50%;
+    }
 }

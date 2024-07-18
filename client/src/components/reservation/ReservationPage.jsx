@@ -1,4 +1,4 @@
-import { Logo } from "../logo/Logo"
+import { Logo2 } from "../logo2/Logo2";
 import {Footer} from "../layout/footer/Footer"
 import "./ReservationPage.css"
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const ReservationPage = () => {
     return (
         <div className="reservations">
-            <Logo />
+            <Logo2 />
             <div className="reservation-info">
                 <h1>Rezervišite Vaš tretman</h1>
                 <h2>Zbog velikog obima posla, rezervacije se vrše isključivo telefonom.</h2>
@@ -16,7 +16,7 @@ export const ReservationPage = () => {
             </div>
 
             <div className="additional-info">
-                <p>Za sve dodatne informacije ili pitanja, slobodno nas kontaktirajte putem telefona ili direktno putem Instagrama.</p>
+                <p>Za sve dodatne informacije ili pitanja, slobodno nas kontaktirajte putem telefona.</p>
             </div>
             <Footer />
         </div>

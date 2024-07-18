@@ -41,7 +41,7 @@ export const Products = () => {
                 <div className="category-products">
                   {groupedProducts[categoryName].map(product => (
                     <div key={product._id} className="product-item">
-                      <p>{product.preparate} ({product.quantity})</p>
+                      <p>{product.preparate} {product.quantity}</p>
                       <p>Cena: {product.price} RSD</p>
                       <button className="buy-btn">Kupi</button>
                     </div>

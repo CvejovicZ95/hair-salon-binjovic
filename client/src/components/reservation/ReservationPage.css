@@ -45,14 +45,14 @@
 .service-paragraph {
     font-size: 1.2em;
     font-weight: 500;
-    line-height: 1.5; /* Povećaj razmak između linija za bolju čitljivost */
+    line-height: 1.5; 
 }
 
 .service-paragraph span {
     cursor: pointer;
     font-weight: 600;
-    transition: 0.3s;/* Dodaj efekat prelaza za transformaciju */
-    display: inline-block; /* Dodaj inline-block kako bi se primenio transform */
+    transition: 0.3s;
+    display: inline-block;
 }
 
 .service-paragraph span:hover {

@@ -68,7 +68,6 @@
   }
 }
 
-/* Between 769px and 1024px */
 @media (max-width: 1024px) and (min-width: 769px) {
 
   .footer-section1,
@@ -100,7 +99,6 @@
   }
 }
 
-/* Up to 768px */
 @media (max-width: 768px) {
   .footer-all-sections {
     flex-direction: column;

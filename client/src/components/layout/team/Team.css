@@ -40,7 +40,6 @@
   }
 }
 
-/* Between 769px and 1024px */
 @media (max-width: 1024px) and (min-width: 769px) {
   .about-team p {
     width: 80%;
@@ -60,8 +59,6 @@
     font-size: 28px;
   }
 }
-
-/* Up to 768px */
 @media (max-width: 768px) {
   .about-team p {
     width: 80%;

@@ -1,7 +1,6 @@
 .products-page {
   text-align: center;
   font-family: "Libre Baskerville", serif;
-  padding: 20px;
 }
 .logo-and-cart{
   display: flex;
@@ -42,12 +41,10 @@
   padding: 10px 15px;
 }
 
-/* Stilizacija opcija na hover */
 .categories select option:hover {
   background-color: #f0f0f0;
 }
 
-/* Stilizacija selektovane opcije */
 .categories select option:checked {
   background-color: gold;
   color: white;
@@ -189,8 +186,8 @@
 
 @media (max-width: 480px) {
   .products::before {
-    background-image: none; /* Uklanjanje pozadinske slike za manje ekrane */
-    background-color: azure; /* Promena boje pozadine za manje ekrane */
+    background-image: none; 
+    background-color: azure; 
   }
 
   .product-img {

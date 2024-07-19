@@ -148,7 +148,6 @@
   }
 }
 
-/* Between 769px and 1024px */
 @media (max-width: 1024px) and (min-width: 769px) {
   .services-first-section {
     width: 750px;
@@ -167,7 +166,6 @@
   }
 }
 
-/* Up to 768px */
 @media (max-width: 768px) {
   .services-first-section {
     width: 100%;

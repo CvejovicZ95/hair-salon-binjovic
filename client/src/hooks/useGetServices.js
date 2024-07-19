@@ -10,7 +10,6 @@ export const useGetServices = () => {
             try {
                 const data = await getServices();
 
-                // Grupisanje usluga po kategorijama
                 const grouped = data.reduce((acc, service) => {
                     if (!acc[service.category]) {
                         acc[service.category] = [];

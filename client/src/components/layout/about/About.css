@@ -69,7 +69,6 @@
   }
 }
 
-/* Between 769px and 1024px */
 @media (max-width: 1024px) and (min-width: 769px) {
   .about {
     padding: 0;
@@ -105,7 +104,6 @@
   }
 }
 
-/* Up to 768px */
 @media (max-width: 768px) {
   .about {
     padding: 0;

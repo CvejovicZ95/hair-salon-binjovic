@@ -46,6 +46,11 @@
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.gallery-div.preparate-active .image-grid {
+  background-color: #f0f0f0;
+  padding: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+}
 
 .tab-buttons {
   margin-bottom: 20px;

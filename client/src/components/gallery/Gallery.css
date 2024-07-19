@@ -78,3 +78,28 @@
   background-color: rgba(255, 215, 0, 0.5);
   color: black;
 }
+
+@media (max-width: 769px) {
+  .tab-buttons button {
+    font-size: 0.9em;
+  }
+  .gallery-div.preparate-active .image-grid {
+    background-color: #f0f0f0;
+    height: auto;
+    width: 90%;
+    display: block;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .tab-buttons button {
+    font-size: 0.7em;
+  }
+  .gallery-div.preparate-active .image-grid {
+    background-color: #f0f0f0;
+    height: auto;
+    width: 90%;
+    display: block;
+  }
+}

@@ -1,0 +1,9 @@
+.cart-count{
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    font-family: 'Libre Baskerville';
+    position: absolute;
+}

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Logo2 } from "../logo2/Logo2";
+import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
 import { useGetProductsByCategory } from "../../hooks/useGetProducts";
+import { CartContext } from "../../context/CartContext";
 import "./Products.css";
 
 export const Products = () => {
   const { productsByCategory, loading, error } = useGetProductsByCategory('kerastase');
+  const { addToCart } = useContext(CartContext)
 
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
@@ -28,7 +31,10 @@ export const Products = () => {
 
   return (
     <div className="products-page">
-      <Logo2 />
+      <div className="logo-and-cart">
+        <Logo2 />
+        <Shopcart/>
+      </div>
       <h1>PREPARATI</h1>
       <div className="categories">
         <select
@@ -53,7 +59,10 @@ export const Products = () => {
               <div key={product._id} className="product-item">
                 <p>{product.preparate} {product.quantity}</p>
                 <p>{product.price} RSD</p>
-                <button className="buy-btn">Naruči</button>
+                <button 
+                  onClick={() => addToCart(product)} 
+                  className="buy-btn"
+                  >Naruči</button>
               </div>
             ))}
           </div>

@@ -4,6 +4,7 @@ import { Gallery } from "./components/gallery/Gallery";
 import { ReservationPage } from "./components/reservation/ReservationPage";
 import { Services } from "./components/services/Services";
 import { Products } from "./components/products/Products"
+import { ShoppingForm } from "./components/shoppingForm/ShoppingForm";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
       <Route path="/services" element = {<Services/>}/>
 
       <Route path="/products" element = {<Products/>}/>
+
+      <Route path="/shop" element = {<ShoppingForm/>}/>
     </Routes>
   );
 }

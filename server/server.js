@@ -9,6 +9,7 @@ import { connect } from "./src/db/connectDB.js"
 import { galleryRouter } from './src/routes/galleryRoutes.js'
 import { productRouter } from './src/routes/productRoutes.js'
 import { serviceRouter } from './src/routes/serviceRoutes.js'
+import { orderRouter } from './src/routes/orderRoutes.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -32,6 +33,7 @@ app.use('/images', express.static(path.join(__dirname, '../server/images')))
 app.use('/api', galleryRouter)
 app.use('/api', productRouter)
 app.use('/api',serviceRouter)
+app.use('/api', orderRouter)
 
 app.listen(PORT,()=>{
   connect()

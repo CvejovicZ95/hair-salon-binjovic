@@ -1,93 +1,147 @@
 .cart-page {
-    text-align: center;
-  }
-  
-  .cart-page h1 {
-    text-align: center;
-    margin: 20px 0; 
-  }
-  
-  .cart-page p {
-    font-size: 1.1em;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .cart-items {
-    display: block;
-    margin-bottom: 100px;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    max-width: 400px;
-    margin: 10px auto;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .cart-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-item p {
-    margin: 0;
-  }
-  
-  .cart-item p:first-child {
-    font-weight: bold;
-  }
-  
-  .cart-item p:last-child {
-    color: #888;
-  }
-  .remove-btn {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .remove-btn:hover {
-    background-color: #c0392b;
-  }
-  .cart-total h2 {
-    font-size: 1.5em; 
-    font-weight: bold; 
-    color: #333; 
-    text-decoration: underline; 
-    margin-top: 20px;
-  }
-  .back-to-products-btn {
-    font-size: 1.4em;
-    background: transparent;
-    width: 90%;
-    max-width: 500px;
-    padding: 20px;
-    margin: 50px auto 20px;
-    text-align: center;
-    cursor: pointer;
-    font-family: "Libre Baskerville";
-    transition: 0.5s;
-    border: 2px solid #333;
-    border-radius: 10px;
+  text-align: center;
+}
+
+.cart-page h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.cart-page p {
+  font-size: 1.1em;
+  color: #555;
+  margin-top: 20px;
+}
+
+.cart-items {
+  display: block;
+  margin-bottom: 100px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+  margin: 10px auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item p {
+  margin: 0;
+}
+
+.cart-item p:first-child {
+  font-weight: bold;
+}
+
+.cart-item p:last-child {
+  color: #888;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.order-form {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.order-form h2 {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-form input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cart-items-list h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.cart-total h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
+.delivery-note {
+  font-size: 0.9em;
+  color: #888;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #219150;
+}
+
+.back-to-products-btn {
+  font-size: 1.4em;
+  background: transparent;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  margin: 50px auto 20px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Libre Baskerville";
+  transition: 0.5s;
+  border: 2px solid #333;
+  border-radius: 10px;
 }
 
 .back-to-products-btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-  @media (max-width: 480px) {
-    .cart-page p {
-        font-size: 0.9em;
-      }
+@media (max-width: 480px) {
+  .cart-page p {
+    font-size: 0.9em;
   }
-  
+}

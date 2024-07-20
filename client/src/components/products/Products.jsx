@@ -8,7 +8,10 @@ import "./Products.css";
 
 export const Products = () => {
   const { productsByCategory, loading, error } = useGetProductsByCategory('kerastase');
-  const { addToCart } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext);
+
+  const [selectedCategory, setSelectedCategory] = useState('kerastase');
+  const [quantities, setQuantities] = useState({});
 
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
@@ -22,18 +25,29 @@ export const Products = () => {
     return groupedProducts;
   };
 
-  const groupedProducts = groupProductsByCategoryName(productsByCategory);
-  const [selectedCategory, setSelectedCategory] = useState('kerastase');
-
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
+
+  const handleQuantityChange = (productId, event) => {
+    setQuantities({
+      ...quantities,
+      [productId]: Number(event.target.value)
+    });
+  };
+
+  const handleAddToCart = (product) => {
+    const quantity = quantities[product._id] || 1; // Default quantity is 1 if not specified
+    addToCart({ ...product, quantity });
+  };
+
+  const groupedProducts = groupProductsByCategoryName(productsByCategory);
 
   return (
     <div className="products-page">
       <div className="logo-and-cart">
         <Logo2 />
-        <Shopcart/>
+        <Shopcart />
       </div>
       <h1>PREPARATI</h1>
       <div className="categories">
@@ -57,12 +71,19 @@ export const Products = () => {
           <div className="products-list">
             {groupedProducts[selectedCategory] && groupedProducts[selectedCategory].map(product => (
               <div key={product._id} className="product-item">
-                <p>{product.preparate} {product.quantity}</p>
+                <p>{product.preparate} {product.quantity} ml</p>
                 <p>{product.price} RSD</p>
+                <input
+                  type="number"
+                  min="1"
+                  value={quantities[product._id] || 1}
+                  onChange={(event) => handleQuantityChange(product._id, event)}
+                  className="quantity-input"
+                />
                 <button 
-                  onClick={() => addToCart(product)} 
+                  onClick={() => handleAddToCart(product)} 
                   className="buy-btn"
-                  >Naruči</button>
+                >Naruči</button>
               </div>
             ))}
           </div>

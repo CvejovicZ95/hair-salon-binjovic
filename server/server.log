@@ -259,3 +259,4 @@
 {"level":"error","message":"Error creating order","timestamp":"2024-07-20T11:42:37.785Z"}
 {"level":"error","message":"Error creating order","timestamp":"2024-07-20T11:43:13.337Z"}
 {"level":"info","message":"New order created successfully","timestamp":"2024-07-20T11:43:34.859Z"}
+{"level":"info","message":"New order created successfully","timestamp":"2024-07-20T14:15:54.870Z"}

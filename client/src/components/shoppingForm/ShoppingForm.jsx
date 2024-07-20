@@ -16,7 +16,8 @@ export const ShoppingForm = () => {
 
   const totalPrice = cartItems.reduce((acc, item) => {
     const price = Number(item.price);
-    return !isNaN(price) ? acc + price : acc;
+    const quantity = Number(item.quantity);
+    return !isNaN(price) && !isNaN(quantity) ? acc + price * quantity : acc;
   }, 0);
 
   const handleChange = (e) => {
@@ -88,7 +89,7 @@ export const ShoppingForm = () => {
               <h3>Izabrani proizvodi:</h3>
               {cartItems.map((item, index) => (
                 <div key={index} className="cart-item">
-                  <p>{item.preparate} ({item.quantity})</p>
+                  <p>{item.preparate} ({item.quantity} kom)</p>
                   <p>{item.price} RSD</p>
                   <button onClick={() => removeFromCart(index)} className="remove-btn">Ukloni</button>
                 </div>

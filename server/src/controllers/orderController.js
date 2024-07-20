@@ -2,9 +2,9 @@ import { createOrder, getAllOrders } from "../service/orderService.js";
 
 export const createOrderController = async (req, res) => {
     try {
-        const { name, email, adress, phoneNumber, productIds } = req.body
+        const { name, email, adress, phoneNumber, productDetails } = req.body
 
-        const newOrder = await createOrder(name, email, adress, phoneNumber, productIds)
+        const newOrder = await createOrder(name, email, adress, phoneNumber, productDetails)
 
         res.status(201).json(newOrder)
     } catch (error) {

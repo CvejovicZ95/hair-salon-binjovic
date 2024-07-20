@@ -1,4 +1,4 @@
-import { getAllServices, addService, updateService, deleteService } from "../service/ServiceService.js";
+import { getAllServices, addService, updateService, deleteService } from "../service/serviceService.js";
 
 export const getAllServicesController = async (req, res) => {
     try {

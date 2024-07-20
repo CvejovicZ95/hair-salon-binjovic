@@ -5,6 +5,7 @@ import { ReservationPage } from "./components/reservation/ReservationPage";
 import { Services } from "./components/services/Services";
 import { Products } from "./components/products/Products"
 import { ShoppingForm } from "./components/shoppingForm/ShoppingForm";
+import { OrderInfo } from "./components/orderInfo/OrderInfo"
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
       <Route path="/products" element = {<Products/>}/>
 
       <Route path="/shop" element = {<ShoppingForm/>}/>
+
+      <Route path="/orderInfo" element = {<OrderInfo/>}/>
     </Routes>
   );
 }

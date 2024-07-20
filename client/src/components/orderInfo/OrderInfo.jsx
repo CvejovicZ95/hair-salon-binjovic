@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetOrder } from "../../hooks/useGetOrders";
-import "./OrderInfo.css"
+import "./OrderInfo.css";
 
 export const OrderInfo = () => {
     const { allOrders } = useGetOrder();
@@ -32,7 +32,7 @@ export const OrderInfo = () => {
                                 <td>
                                     {order.products.map((product, index) => (
                                         <div key={`${product.productId}-${index}`}>
-                                            Product: {product.preparate} ({product.price} rsd)
+                                            Proizvod: {product.productId.preparate} ({product.productId.price} rsd) - Količina: {product.quantity}
                                         </div>
                                     ))}
                                 </td>

@@ -13,7 +13,7 @@ export const getAllOrders = async () => {
     }
 }
 
-export const createOrder = async ({
+/*export const createOrder = async ({
     name,
     email,
     adress,
@@ -37,4 +37,4 @@ export const createOrder = async ({
     } catch(error){
         throw new Error('Error creating order')
     }
-}
+}*/

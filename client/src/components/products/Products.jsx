@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Logo2 } from "../logo2/Logo2";
 import { Shopcart } from "../shopcart/Shopcart";
+import { QuantityInput } from "../quantityInput/QuantityInput";
 import { Footer } from "../layout/footer/Footer";
 import { useGetProductsByCategory } from "../../hooks/useGetProducts";
 import { CartContext } from "../../context/CartContext";
@@ -71,14 +72,11 @@ export const Products = () => {
           <div className="products-list">
             {groupedProducts[selectedCategory] && groupedProducts[selectedCategory].map(product => (
               <div key={product._id} className="product-item">
-                <p>{product.preparate} {product.quantity} ml</p>
+                <p>{product.preparate} {product.quantity}</p>
                 <p>{product.price} RSD</p>
-                <input
-                  type="number"
-                  min="1"
+                <QuantityInput
                   value={quantities[product._id] || 1}
                   onChange={(event) => handleQuantityChange(product._id, event)}
-                  className="quantity-input"
                 />
                 <button 
                   onClick={() => handleAddToCart(product)} 

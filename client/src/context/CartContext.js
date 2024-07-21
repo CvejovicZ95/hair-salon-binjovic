@@ -14,7 +14,17 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const updatedItems = [...prevItems, product];
+      const existingProductIndex = prevItems.findIndex(item => item._id === product._id);
+      let updatedItems;
+      if (existingProductIndex >= 0) {
+        updatedItems = prevItems.map((item, index) => 
+          index === existingProductIndex 
+          ? { ...item, quantity: item.quantity + 1 } 
+          : item
+        );
+      } else {
+        updatedItems = [...prevItems, { ...product, quantity: 1 }];
+      }
       localStorage.setItem('cartItems', JSON.stringify(updatedItems));
       return updatedItems;
     });

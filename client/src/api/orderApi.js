@@ -16,7 +16,9 @@ export const getAllOrders = async () => {
 export const createSingleOrder = async ({
     name,
     email,
-    adress,
+    city,
+    postalCode,
+    address,
     phoneNumber,
     productDetails
 }) => {
@@ -27,7 +29,9 @@ export const createSingleOrder = async ({
             body:JSON.stringify({
                 name,
                 email,
-                adress,
+                city,
+                postalCode,
+                address,
                 phoneNumber,
                 productDetails
             }),

@@ -14,6 +14,8 @@ export const ShoppingForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    city:"",
+    postalCode:"",
     address: "",
     phone: ""
   });
@@ -53,6 +55,14 @@ export const ShoppingForm = () => {
       toast.error("Molimo unesite adresu");
       return;
     }
+    if (!formData.city) {
+      toast.error("Molimo unesite grad");
+      return;
+    }
+    if (!formData.postalCode) {
+      toast.error("Molimo unesite poštanski broj");
+      return;
+    }
     if (!formData.phone) {
       toast.error("Molimo unesite broj telefona");
       return;
@@ -65,7 +75,9 @@ export const ShoppingForm = () => {
     const orderData = {
       name: formData.name,
       email: formData.email,
-      adress: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      address: formData.address,
       phoneNumber: formData.phone,
       productDetails: cartItems.map(item => ({
         productId: item._id,
@@ -111,6 +123,26 @@ export const ShoppingForm = () => {
                 type="email"
                 name="email"
                 value={formData.email}
+                onChange={handleChange}
+                
+              />
+            </label>
+            <label>
+              Grad:
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                
+              />
+            </label>
+            <label>
+              Poštanski broj:
+              <input
+                type="number"
+                name="postalCode"
+                value={formData.postalCode}
                 onChange={handleChange}
                 
               />

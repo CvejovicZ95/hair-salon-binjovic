@@ -16,6 +16,8 @@ export const OrderInfo = () => {
                         <tr>
                             <th>Ime</th>
                             <th>Email</th>
+                            <th>Grad</th>
+                            <th>Poštanski broj</th>
                             <th>Adresa</th>
                             <th>Broj telefona</th>
                             <th>Proizvodi</th>
@@ -27,7 +29,9 @@ export const OrderInfo = () => {
                             <tr key={order._id}>
                                 <td>{order.name}</td>
                                 <td>{order.email}</td>
-                                <td>{order.adress}</td>
+                                <td>{order.city}</td>
+                                <td>{order.postalCode}</td>
+                                <td>{order.address}</td>
                                 <td>{order.phoneNumber}</td>
                                 <td>
                                     {order.products.map((product, index) => (

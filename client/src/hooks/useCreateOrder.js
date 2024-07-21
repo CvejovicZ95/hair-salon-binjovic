@@ -8,14 +8,18 @@ export const useCreateOrder = () => {
     const createOrder = async ({
         name,
         email,
-        adress,
+        city,
+        postalCode,
+        address,
         phoneNumber,
         productDetails,
     }) => {
         const success = handleErrors({
             name,
             email,
-            adress,
+            city,
+            postalCode,
+            address,
             phoneNumber,
             productDetails
         });
@@ -26,7 +30,9 @@ export const useCreateOrder = () => {
             const orderData = await createSingleOrder({
                 name,
                 email,
-                adress,
+                city,
+                postalCode,
+                address,
                 phoneNumber,
                 productDetails
             });
@@ -37,7 +43,7 @@ export const useCreateOrder = () => {
         }
     };
 
-    function handleErrors({ name, email, adress, phoneNumber, productDetails }) {
+    function handleErrors({ name, email, city, postalCode, address, phoneNumber, productDetails }) {
         if (!name) {
             toast.error("Molimo unesite ime i prezime");
             return false;
@@ -51,8 +57,16 @@ export const useCreateOrder = () => {
             toast.error("Molimo unesti ispravan format e-mail adrese");
             return false;
         }
-        if (!adress) {
+        if (!address) {
             toast.error("Molimo unesite adresu");
+            return false;
+        }
+        if (!city) {
+            toast.error("Molimo unesite grad");
+            return false;
+        }
+        if (!postalCode) {
+            toast.error("Molimo unesite poštanski broj");
             return false;
         }
         if (!phoneNumber) {

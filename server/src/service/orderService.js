@@ -2,7 +2,7 @@ import { Order } from "../models/orderSchema.js";
 import { Product } from "../models/productSchema.js";
 import { logger } from "../../logger.js";
 
-export const createOrder = async (name, email, adress, phoneNumber, productDetails) => {
+export const createOrder = async (name, email, city, postalCode, address, phoneNumber, productDetails) => {
     try {
         const productIds = productDetails.map(detail => detail.productId);
         const products = await Product.find({ '_id': { $in: productIds } });
@@ -13,7 +13,9 @@ export const createOrder = async (name, email, adress, phoneNumber, productDetai
         const newOrder = new Order({
             name,
             email,
-            adress,
+            city,
+            postalCode,
+            address,
             phoneNumber,
             products: productDetails
         });

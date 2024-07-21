@@ -1,1 +1,0 @@
-srediti da se korpa ocisti nakon uspesne porudzbine

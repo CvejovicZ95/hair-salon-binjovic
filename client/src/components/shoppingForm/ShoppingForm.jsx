@@ -22,6 +22,7 @@ export const ShoppingForm = () => {
 
   // eslint-disable-next-line
   const { order, createOrder } = useCreateOrder();
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce((acc, item) => {
@@ -88,10 +89,8 @@ export const ShoppingForm = () => {
     try {
       await createOrder(orderData);
       toast.success("Porudžbina je uspešno kreirana!");
-      setTimeout(() => {
-        clearCart();
-        navigate('/products')
-      }, 6000);
+      clearCart();
+      //if u wanna navigate add timeout 
     } catch (error) {
       toast.error("Došlo je do greške prilikom slanja porudžbine");
     }
@@ -101,9 +100,9 @@ export const ShoppingForm = () => {
     <div className="cart-page">
       <Logo2 />
       <h1>Vaša korpa</h1>
-      {cartItems.length === 0 ? (
+      {/*{cartItems.length === 0 ? (
         <p>Korpa je prazna</p>
-      ) : (
+      ) : (*/}
         <div className="cart-items">
           <form className="order-form" onSubmit={handleSubmit}>
             <h2>Poručivanje na adresu</h2>
@@ -184,7 +183,7 @@ export const ShoppingForm = () => {
           </form>
           <ToastContainer/>
         </div>
-      )}
+     {/* )} */}
       <Link to={"/products"}><button className="back-to-products-btn">Nazad na preparate</button></Link>
       <Footer />
     </div>

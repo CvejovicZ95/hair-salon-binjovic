@@ -13,12 +13,12 @@ export const getAllOrders = async () => {
     }
 }
 
-/*export const createOrder = async ({
+export const createSingleOrder = async ({
     name,
     email,
     adress,
     phoneNumber,
-    productIds
+    productDetails
 }) => {
     try {
         const res = await fetch(`${apiUrl}/api/orders`, {
@@ -29,12 +29,17 @@ export const getAllOrders = async () => {
                 email,
                 adress,
                 phoneNumber,
-                productIds:productIds
+                productDetails
             }),
         });
+        if (!res.ok) {
+            const errorData = await res.json();
+            console.error('Error creating order:', errorData);
+            throw new Error(errorData.message || 'Error creating order');
+        }
         const data = await res.json()
         return data
     } catch(error){
         throw new Error('Error creating order')
     }
-}*/
+}

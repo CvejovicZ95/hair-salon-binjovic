@@ -3,16 +3,24 @@ import "./ShoppingForm.css";
 import { Logo2 } from "../logo2/Logo2";
 import { Footer } from "../layout/footer/Footer";
 import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateOrder } from "../../hooks/useCreateOrder";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export const ShoppingForm = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     address: "",
     phone: ""
   });
+
+  // eslint-disable-next-line
+  const { order, createOrder } = useCreateOrder();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce((acc, item) => {
     const price = Number(item.price);
@@ -24,15 +32,57 @@ export const ShoppingForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validacija
+    if (!formData.name) {
+      toast.error("Molimo unesite ime i prezime");
+      return;
+    }
+    if (!formData.email) {
+      toast.error("Molimo unesite e-mail adresu");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Molimo uneti ispravan format e-mail adrese");
+      return;
+    }
+    if (!formData.address) {
+      toast.error("Molimo unesite adresu");
+      return;
+    }
+    if (!formData.phone) {
+      toast.error("Molimo unesite broj telefona");
+      return;
+    }
+    if (cartItems.length === 0) {
+      toast.error("Molimo izaberite preparate");
+      return;
+    }
+
     const orderData = {
-      ...formData,
-      products: cartItems,
-      total: totalPrice
+      name: formData.name,
+      email: formData.email,
+      adress: formData.address,
+      phoneNumber: formData.phone,
+      productDetails: cartItems.map(item => ({
+        productId: item._id,
+        quantity: item.quantity
+      }))
     };
-    // Handle order submission logic here, e.g., sending the order to a server
-    console.log("Order submitted:", orderData);
+
+    try {
+      await createOrder(orderData);
+      toast.success("Porudžbina je uspešno kreirana!");
+      setTimeout(() => {
+        clearCart();
+        navigate('/products')
+      }, 6000);
+    } catch (error) {
+      toast.error("Došlo je do greške prilikom slanja porudžbine");
+    }
   };
 
   return (
@@ -52,7 +102,7 @@ export const ShoppingForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required
+                
               />
             </label>
             <label>
@@ -62,7 +112,7 @@ export const ShoppingForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
+                
               />
             </label>
             <label>
@@ -72,7 +122,7 @@ export const ShoppingForm = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                required
+                
               />
             </label>
             <label>
@@ -82,7 +132,6 @@ export const ShoppingForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                required
               />
             </label>
             <div className="cart-items-list">
@@ -101,6 +150,7 @@ export const ShoppingForm = () => {
             <p className="delivery-note">Napomena: Trošak dostave plaća korisnik.</p>
             <button type="submit" className="submit-btn">Pošalji porudžbinu</button>
           </form>
+          <ToastContainer/>
         </div>
       )}
       <Link to={"/products"}><button className="back-to-products-btn">Nazad na preparate</button></Link>

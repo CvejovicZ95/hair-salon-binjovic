@@ -13,7 +13,6 @@ export const sendOrderConfirmation = async ({ email, details }) => {
             text: `Hvala Vam na porudžbini`,
             html: details
         });
-        console.log('Email sent:', response);
         return response;
     } catch (error) {
         console.error('Error sending email:', error);

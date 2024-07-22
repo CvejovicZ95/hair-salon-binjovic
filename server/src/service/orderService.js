@@ -7,6 +7,7 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
     try {
         const productIds = productDetails.map(detail => detail.productId);
         const products = await Product.find({ '_id': { $in: productIds } });
+
         if (products.length !== productIds.length) {
             throw new Error('One or more products not found');
         }
@@ -26,9 +27,10 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
         await newOrder.save();
 
         const orderDetails = `
-        <h2>Broj porudžbine: ${newOrder._id}</h2>
+    <div style="font-family: Arial, sans-serif; color: #333;">
+        <h2 style="color: #2e6da4;">Broj porudžbine: ${newOrder._id}</h2>
         
-        <h3>Detalji isporuke:</h3>
+        <h3 style="color: #2e6da4;">Detalji isporuke:</h3>
         <p><strong>Ime:</strong> ${name}</p>
         <p><strong>E-mail:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phoneNumber}</p>
@@ -36,20 +38,22 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
         <p><strong>Poštanski broj:</strong> ${postalCode}</p>
         <p><strong>Grad:</strong> ${city}</p>
         
-        <h3>Naručeni preparati:</h3>
+        <h3 style="color: #2e6da4;">Naručeni preparati:</h3>
         <ul>
             ${newOrder.products.map(p => {
                 const product = productMap.get(p.productId.toString());
                 return `
                     <li>
-                        ${product ? `${product.category} - ${product.preparate} - ${product.name} - ${product.price} RSD - količina: ${p.quantity}` : 'Nepoznat proizvod'}
+                        ${product ? `${product.preparate}:${product.price} RSD (po preparatu) - količina: ${p.quantity}` : 'Nepoznat proizvod'}
                     </li>
                 `;
             }).join('')}
         </ul>
-        <h1>Hvala Vam na ukazanom poverenju<h1>
-        <h2>Vaš 'Hair Salon Binjovic'<h2>
-    `;
+        
+        <h1 style="color: #2e6da4;">Hvala Vam na ukazanom poverenju</h1>
+        <h2 style="color: #2e6da4;">Vaš 'Hair Salon Binjovic'</h2>
+    </div>
+`;
 
 
         await sendOrderConfirmation({ email: newOrder.email, details: orderDetails });
@@ -71,17 +75,3 @@ export const getAllOrders = async () => {
         throw new Error('Error getting all orders');
     }
 }
-
-/*const testSendOrderConfirmation = async () => {
-    try {
-        const email = 'cvejovicz@gmail.com';
-        const details = 'Order ID: 12345\nProducts:\nProduct1 - 2\nProduct2 - 1\nTotal Price: $50.00';
-
-        await sendOrderConfirmation({ email, details });
-        console.log('Test email sent successfully');
-    } catch (error) {
-        console.error('Test email failed:', error);
-    }
-};
-
-testSendOrderConfirmation();*/

@@ -35,7 +35,15 @@ const orderSchema = new mongoose.Schema({
       type: Number,
       required: true
     }
-  }]
+  }],
+  processed: {
+    type: Boolean,
+    default: false
+  },
+  sent: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -20,7 +20,9 @@ export const createSingleOrder = async ({
     postalCode,
     address,
     phoneNumber,
-    productDetails
+    productDetails,
+    processed,
+    sent
 }) => {
     try {
         const res = await fetch(`${apiUrl}/api/orders`, {
@@ -33,7 +35,9 @@ export const createSingleOrder = async ({
                 postalCode,
                 address,
                 phoneNumber,
-                productDetails
+                productDetails,
+                processed,
+                sent
             }),
         });
         if (!res.ok) {

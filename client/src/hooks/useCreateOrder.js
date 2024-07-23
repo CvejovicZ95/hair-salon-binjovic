@@ -13,6 +13,8 @@ export const useCreateOrder = () => {
         address,
         phoneNumber,
         productDetails,
+        processed,
+        sent
     }) => {
         const success = handleErrors({
             name,
@@ -21,7 +23,9 @@ export const useCreateOrder = () => {
             postalCode,
             address,
             phoneNumber,
-            productDetails
+            productDetails,
+            processed,
+            sent
         });
 
         if (!success) return;

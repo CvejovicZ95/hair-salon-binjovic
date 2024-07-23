@@ -3,7 +3,7 @@ import { Product } from "../models/productSchema.js";
 import { logger } from "../../logger.js";
 import { sendOrderConfirmation } from "../../mailgun.js";
 
-export const createOrder = async (name, email, city, postalCode, address, phoneNumber, productDetails) => {
+export const createOrder = async (name, email, city, postalCode, address, phoneNumber, productDetails, processed, sent) => {
     try {
         const productIds = productDetails.map(detail => detail.productId);
         const products = await Product.find({ '_id': { $in: productIds } });
@@ -21,7 +21,9 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
             postalCode,
             address,
             phoneNumber,
-            products: productDetails
+            products: productDetails,
+            processed,
+            sent
         });
 
         await newOrder.save();
@@ -74,5 +76,35 @@ export const getAllOrders = async () => {
     } catch (error) {
         logger.error('Error getting all orders', error.message);
         throw new Error('Error getting all orders');
+    }
+}
+
+export const makeOrderProcessed = async (orderId) => {
+    try {
+        const order = await Order.findById(orderId)
+
+        if (!order) {
+            throw new Error('Order not found')
+        }
+        order.processed = true
+        await order.save()
+    } catch (error) {
+        logger.error('Error making order processed', error.message)
+        throw new Error('Error making order processed')
+    }
+}
+
+export const makeOrderAsSent = async (orderId) => {
+    try {
+        const order = await Order.findById(orderId)
+
+        if (!order) {
+            throw new Error('Order not found')
+        }
+        order.sent = true
+        await order.save()
+    } catch (error) {
+        logger.error('Error making order as sent', error.message)
+        throw new Error('Error making order as sent')
     }
 }

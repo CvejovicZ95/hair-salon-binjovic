@@ -3,7 +3,7 @@ import { Logo2 } from "../logo2/Logo2";
 import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
 import { useGetProductsByCategory } from "../../hooks/useGetProducts";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/cartContext";
 import "./Products.css";
 
 export const Products = () => {

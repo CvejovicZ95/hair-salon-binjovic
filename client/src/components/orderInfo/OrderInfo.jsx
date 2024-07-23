@@ -1,12 +1,21 @@
 import React from "react";
+import { Logo2 } from "../logo2/Logo2";
 import { useGetOrder } from "../../hooks/useGetOrders";
+import { useLogoutAdmin } from "../../hooks/useAdminLoginLogout";
+import { Link } from "react-router-dom";
 import "./OrderInfo.css";
 
 export const OrderInfo = () => {
     const { allOrders } = useGetOrder();
+    const { logoutHandler } = useLogoutAdmin()
 
     return (
         <div>
+            <div className="logo-logout">
+              <Logo2/>
+              <Link to={'/'}><button onClick={logoutHandler}>Izloguj se</button> </Link> 
+            </div>
+            
             <h1>Informacije o porudžbinama</h1>
             {allOrders.length === 0 ? (
                 <p>Nema porudžbina</p>
@@ -22,6 +31,7 @@ export const OrderInfo = () => {
                             <th>Broj telefona</th>
                             <th>Proizvodi</th>
                             <th>Datum kreiranja</th>
+                            <th>Obrađena / Poslata</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +51,10 @@ export const OrderInfo = () => {
                                     ))}
                                 </td>
                                 <td>{new Date(order.created_at).toLocaleString()}</td>
+                                <td>
+                                    <button className="order-btn">Da</button>
+                                    <button className="order-btn">Da</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

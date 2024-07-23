@@ -27,10 +27,10 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
         await newOrder.save();
 
         const orderDetails = `
-    <div style="font-family: Arial, sans-serif; color: #333;">
-        <h2 style="color: #2e6da4;">Broj porudžbine: ${newOrder._id}</h2>
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #2e6da4; border-bottom: 2px solid #2e6da4; padding-bottom: 10px;">Broj porudžbine: ${newOrder._id}</h2>
         
-        <h3 style="color: #2e6da4;">Detalji isporuke:</h3>
+        <h3 style="color: #2e6da4; margin-top: 20px;">Detalji isporuke:</h3>
         <p><strong>Ime:</strong> ${name}</p>
         <p><strong>E-mail:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phoneNumber}</p>
@@ -38,22 +38,23 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
         <p><strong>Poštanski broj:</strong> ${postalCode}</p>
         <p><strong>Grad:</strong> ${city}</p>
         
-        <h3 style="color: #2e6da4;">Naručeni preparati:</h3>
-        <ul>
+        <h3 style="color: #2e6da4; margin-top: 20px;">Naručeni preparati:</h3>
+        <ul style="list-style-type: none; padding-left: 0;">
             ${newOrder.products.map(p => {
                 const product = productMap.get(p.productId.toString());
                 return `
-                    <li>
-                        ${product ? `${product.preparate}:${product.price} RSD (po preparatu) - količina: ${p.quantity}` : 'Nepoznat proizvod'}
+                    <li style="background: #f9f9f9; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        ${product ? `${product.preparate}: ${product.price} RSD (po preparatu) - količina: ${p.quantity}` : 'Nepoznat proizvod'}
                     </li>
                 `;
             }).join('')}
         </ul>
         
-        <h1 style="color: #2e6da4;">Hvala Vam na ukazanom poverenju</h1>
-        <h2 style="color: #2e6da4;">Vaš 'Hair Salon Binjovic'</h2>
-    </div>
-`;
+        <h1 style="color: #2e6da4; text-align: center; margin-top: 30px;">Hvala Vam na ukazanom poverenju</h1>
+        <h2 style="color: #2e6da4; text-align: center;">Vaš 'Hair Salon Binjovic'</h2>
+        </div>
+    `;
+
 
 
         await sendOrderConfirmation({ email: newOrder.email, details: orderDetails });

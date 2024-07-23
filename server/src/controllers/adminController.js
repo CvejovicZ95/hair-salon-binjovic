@@ -37,7 +37,7 @@ export const loginAdmin = async (req, res) => {
 
         if (!admin || !isPasswordCorrect) {
             logger.error('Invalid username or password')
-            return res.status(400).json({ error: 'Pogresno korisnicko ime ili lozinka'})
+            return res.status(400).json({ error: 'Pogrešno korisničko ime ili lozinka'})
         }
 
         const token = generateToken(admin._id, res)

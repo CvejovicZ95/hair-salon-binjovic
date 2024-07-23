@@ -1,4 +1,25 @@
-/* OrderInfo.css */
+.logo-logout{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo-logout button{
+    font-size: 1.1em;
+    background: transparent;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 50px auto 20px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Libre Baskerville";
+    transition: 0.5s;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+.logo-logout button:hover{
+    transform: scale(1.1);
+}
 
 .order-info-container {
     padding: 20px;
@@ -49,3 +70,19 @@ tbody tr:hover {
 .product-info div {
     margin-bottom: 5px;
 }
+.order-btn {
+    font-size: 1em;
+    background-color: silver; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for a nice button size */
+    margin: 5px; /* Small margin around the buttons */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.order-btn:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+

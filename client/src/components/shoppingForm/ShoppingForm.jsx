@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./ShoppingForm.css";
 import { Logo2 } from "../logo2/Logo2";
 import { Footer } from "../layout/footer/Footer";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/cartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useCreateOrder } from "../../hooks/useCreateOrder";
 import { toast } from "react-toastify";

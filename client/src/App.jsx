@@ -7,9 +7,11 @@ import { Products } from "./components/products/Products"
 import { ShoppingForm } from "./components/shoppingForm/ShoppingForm";
 import { AdminLogin } from "./components/admin/AdmingLogin";
 import { OrderInfo } from "./components/orderInfo/OrderInfo"
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuthContext } from "./context/authContext";
 
 function App() {
+  const { authUser } = useAuthContext();
   return (
     <Routes>
       <Route path="/" element={<Layout/>}/>
@@ -24,9 +26,13 @@ function App() {
 
       <Route path="/shop" element = {<ShoppingForm/>}/>
 
-      <Route path="/admin" element = {<AdminLogin/>}/>
+      <Route path="/admin" element={authUser ? <Navigate to={"/orderInfo"} /> : <AdminLogin />} />
 
-      <Route path="/orderInfo" element = {<OrderInfo/>}/>
+      <Route 
+        path="/orderInfo" 
+        element = {!authUser ? <Navigate to={"/admin"}></Navigate> : <OrderInfo/>}
+      />
+
     </Routes>
   );
 }

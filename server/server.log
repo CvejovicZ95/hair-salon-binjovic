@@ -306,3 +306,6 @@
 {"level":"info","message":"New order created successfully","timestamp":"2024-07-21T15:48:01.706Z"}
 {"level":"info","message":"New order created successfully","timestamp":"2024-07-21T15:49:24.668Z"}
 {"level":"info","message":"New order created successfully","timestamp":"2024-07-22T09:20:19.456Z"}
+{"level":"info","message":"Admin register successfully","timestamp":"2024-07-23T09:34:49.008Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-23T09:35:21.092Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-23T09:35:31.189Z"}

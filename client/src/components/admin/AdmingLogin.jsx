@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoginAdmin } from "../../hooks/useAdminLoginLogout"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./AdminLogin.css"
 
 export const AdminLogin = () => {
     const [username, setUsername] = useState('')

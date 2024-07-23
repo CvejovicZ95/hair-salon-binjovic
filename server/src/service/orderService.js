@@ -50,8 +50,8 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
             }).join('')}
         </ul>
         
-        <h1 style="color: #2e6da4; text-align: center; margin-top: 30px;">Hvala Vam na ukazanom poverenju</h1>
-        <h2 style="color: #2e6da4; text-align: center;">Vaš 'Hair Salon Binjovic'</h2>
+        <h2 style="color: #2e6da4; text-align: center; margin-top: 30px;">Hvala Vam na ukazanom poverenju</h2>
+        <h3 style="color: #2e6da4; text-align: center;">Vaš 'Hair Salon Binjovic'</h3>
         </div>
     `;
 

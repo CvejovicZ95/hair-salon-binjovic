@@ -51,3 +51,41 @@ export const createSingleOrder = async ({
         throw new Error('Error creating order')
     }
 }
+
+export const markOrderAsProcessed = async (id) => {
+    try {
+        const res = await fetch(`${apiUrl}/api/orders/processOrder/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ processed: true }),
+        })
+        const data = await res.json();
+        if(data.error) {
+            throw new Error(data.error)
+        }
+        return data;
+    } catch (error){
+        throw new Error(error.message)
+    }
+}
+
+export const markOrderAsSent = async (id) => {
+    try {
+        const res = await fetch(`${apiUrl}/api/orders/sentOrder/${id}`, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ sent: true }),
+        });
+        const data = await res.json();
+        if (data.error) {
+            throw new Error(data.error)
+        }
+        return data;
+    } catch (error) {
+        throw new Error(error.message)
+    }
+}

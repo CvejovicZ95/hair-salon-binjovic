@@ -15,7 +15,7 @@ export const useGetOrder = () => {
             }
         };
         fetchOrders()
-    },[])
+    },[allOrders])
 
     return { allOrders }
 }

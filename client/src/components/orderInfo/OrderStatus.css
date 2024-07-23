@@ -1,0 +1,16 @@
+/* OrderStatus.css */
+.status-btn {
+    font-size: 1.1em;
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.status-btn:hover{
+    background-color: rgb(50, 250, 50);
+}
+.status-btn:active{
+    background-color: rgb(0, 170, 0);
+}

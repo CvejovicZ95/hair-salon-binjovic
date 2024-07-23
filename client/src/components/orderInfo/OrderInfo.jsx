@@ -1,13 +1,17 @@
 import React from "react";
 import { Logo2 } from "../logo2/Logo2";
+import { OrderStatus } from "./OrderStatus"
 import { useGetOrder } from "../../hooks/useGetOrders";
 import { useLogoutAdmin } from "../../hooks/useAdminLoginLogout";
+import { markOrderAsProcessedHandler, markOrderAsSentHandler } from "../../hooks/useChangeOrderStatus"
 import { Link } from "react-router-dom";
 import "./OrderInfo.css";
 
 export const OrderInfo = () => {
     const { allOrders } = useGetOrder();
     const { logoutHandler } = useLogoutAdmin()
+
+    const sortedOrders = allOrders.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     return (
         <div>
@@ -35,7 +39,7 @@ export const OrderInfo = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allOrders.map((order) => (
+                        {sortedOrders.map((order) => (
                             <tr key={order._id}>
                                 <td>{order.name}</td>
                                 <td>{order.email}</td>
@@ -52,8 +56,11 @@ export const OrderInfo = () => {
                                 </td>
                                 <td>{new Date(order.created_at).toLocaleString()}</td>
                                 <td>
-                                    <button className="order-btn">Da</button>
-                                    <button className="order-btn">Da</button>
+                                <OrderStatus 
+                                    status={{ processed: order.processed, sent: order.sent }}
+                                    onProcessedClick={() => markOrderAsProcessedHandler(order._id)}
+                                    onSentClick={() => markOrderAsSentHandler(order._id)}
+                                />
                                 </td>
                             </tr>
                         ))}

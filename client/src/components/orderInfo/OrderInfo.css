@@ -27,29 +27,31 @@
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
+    text-align: center;
     color: #333;
+    margin-top: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 thead {
-    background-color: #f4f4f4;
+    background-color: #333;
+    color: #fff;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #f4f4f4;
     font-weight: bold;
 }
 
@@ -57,12 +59,7 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tbody tr:hover {
-    background-color: #e0e0e0;
-}
-
 .product-info {
-    margin-top: 5px;
     font-size: 14px;
     color: #555;
 }
@@ -70,19 +67,32 @@ tbody tr:hover {
 .product-info div {
     margin-bottom: 5px;
 }
+
 .order-btn {
-    font-size: 1em;
-    background-color: silver; /* Green background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding for a nice button size */
-    margin: 5px; /* Small margin around the buttons */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    font-size: 0.9em;
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.order-btn:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
+.order-btn:not(.disabled):hover {
+    opacity: 0.8;
 }
 
+.order-processed {
+    background-color: #4caf50; /* Green for processed orders */
+    color: #fff;
+}
+
+.order-sent {
+    background-color: #2196f3; /* Blue for sent orders */
+    color: #fff;
+}
+
+.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

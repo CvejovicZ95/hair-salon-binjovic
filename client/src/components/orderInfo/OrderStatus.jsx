@@ -6,7 +6,7 @@ export const OrderStatus = ({ status, onProcessedClick, onSentClick }) => {
     const isSent = status.sent;
 
     return (
-        <td>
+        <div>
             <button 
                 onClick={onProcessedClick}
                 className={`status-btn ${isProcessed ? 'processed' : ''}`}
@@ -21,6 +21,6 @@ export const OrderStatus = ({ status, onProcessedClick, onSentClick }) => {
             >
                 {isSent ? '✔' : 'Poslata'}
             </button>
-        </td>
+        </div>
     );
 };

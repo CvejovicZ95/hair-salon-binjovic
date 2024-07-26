@@ -2,7 +2,7 @@ import { Gallery } from "../models/gallerySchema.js"
 import { logger } from '../../logger.js'
 import multer from "multer"
 
-import { getAllImages } from "../service/galleryService.js"
+import { getAllImages, deleteImage } from "../service/galleryService.js"
 
 export const getAllImagesController = async (req,res) => {
   try {
@@ -50,6 +50,16 @@ export const uploadImageToGallery = async (req,res) => {
     })
   } catch (error) {
     logger.error('Error in uploadImageToGallery controller', error.message)
+    res.status(500).json('Server error')
+  }
+}
+
+export const deleteImageController = async (req, res) => {
+  try {
+    const imageId = req.params.id
+    await deleteImage(imageId)
+    res.status(200).json({ message: 'Image is deleted successfully from gallery'})
+  } catch (error) {
     res.status(500).json('Server error')
   }
 }

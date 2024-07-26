@@ -361,3 +361,29 @@
 {"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T11:51:33.099Z"}
 {"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T11:52:51.539Z"}
 {"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T11:53:23.855Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-26T12:13:47.085Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T12:14:03.998Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T12:20:35.520Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-26T12:21:10.966Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T12:21:21.135Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-26T12:37:26.345Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T12:39:32.352Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-26T12:39:39.909Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T12:40:27.514Z"}
+{"level":"error","message":"Error deleting image from gallery","timestamp":"2024-07-26T12:40:34.461Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T12:46:10.641Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T12:46:36.980Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T12:46:55.388Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T12:51:33.347Z"}
+{"level":"error","message":"Error deleting image from gallery","timestamp":"2024-07-26T12:51:51.640Z"}
+{"level":"error","message":"Error deleting image from gallery","timestamp":"2024-07-26T12:54:38.239Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T12:59:26.597Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T13:02:24.671Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T13:02:33.653Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-26T13:02:44.808Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T13:02:57.419Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T13:03:08.415Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-26T13:03:18.402Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T13:03:40.454Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-26T13:06:28.791Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-26T13:07:59.264Z"}

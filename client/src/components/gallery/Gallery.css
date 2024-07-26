@@ -78,6 +78,21 @@
   background-color: rgba(255, 215, 0, 0.5);
   color: black;
 }
+.delete-photo-btn{
+  padding: 10px 20px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(250, 50, 50);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 10px;
+}
+.delete-photo-btn:hover{
+  background-color: red;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 @media (max-width: 769px) {
   .tab-buttons button {

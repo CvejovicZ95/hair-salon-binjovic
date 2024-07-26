@@ -35,8 +35,8 @@ export const uploadImageToGallery = async (req,res) => {
         return res.status(500).json({ message: 'Server error uploading photo'})
       }
 
-      const { alt, category, imagePath } = req.body
-      //const imagePath = req.file.filename 
+      const { alt, category } = req.body
+      const imagePath = req.file.filename 
 
       const newImage = new Gallery({
         imagePath,

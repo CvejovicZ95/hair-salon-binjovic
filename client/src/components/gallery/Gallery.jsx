@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "./Gallery.css";
 import { Logo2 } from "../logo2/Logo2";
+import { PhotoUploadForm} from "./PhotoUploadForm";
 import { Footer } from "../layout/footer/Footer";
 import { ImageContainer } from "./SingleImage";
 import { useGetImages } from "../../hooks/useGetPhotosGallery";
+import { useUploadHandler } from "../../hooks/useUploadPhotoToGallery";
+import { useAuthContext } from "../../context/authContext"
 
 export const Gallery = () => {
   const { images } = useGetImages();
+  const { uploadHandler } = useUploadHandler()
+  const { authUser } = useAuthContext()
   const [activeTab, setActiveTab] = useState('hair');
 
   const serviceImages = images.filter((image) => image.category === 'hair');
@@ -21,6 +26,7 @@ export const Gallery = () => {
     <>
       <div className={`gallery-div ${activeTab === 'preparate' ? 'preparate-active' : ''}`} id="gallery">
         <Logo2 />
+        {authUser && (<PhotoUploadForm handleSubmit={uploadHandler}/>)}
         <h1>GALERIJA</h1>
         <div className="tab-buttons">
           <button onClick={() => handleTabClick('hair')} className={activeTab === 'hair' ? 'active' : ''}>USLUGA</button>

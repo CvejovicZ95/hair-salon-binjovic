@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Logo2 } from "../logo2/Logo2"
 import { useLoginAdmin } from "../../hooks/useAdminLoginLogout"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,6 +19,7 @@ export const AdminLogin = () => {
     return (
         <div>
             <form className="admin" onSubmit={handleSubmit}>
+                <Logo2/>
                 <input
                     type="text"
                     placeholder="Username"

@@ -12,3 +12,31 @@ export const getAllImages = async () => {
     throw new Error(error.message)
   }
 }
+
+export const uploadPhoto = async (alt, image, category) => {
+  try {
+    const formData = new FormData();
+    formData.append('alt', alt)
+    formData.append('image', image)
+    formData.append('category', category)
+
+    const res = await fetch(`${apiUrl}/api/gallery`, {
+      method: "POST",
+      body: formData,
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed to upload photo to gallery')
+    }
+
+    const data = await res.json();
+
+    if (data.error) {
+      throw new Error(data.error)
+    }
+
+    return true;
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}

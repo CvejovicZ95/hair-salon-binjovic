@@ -1,6 +1,6 @@
 import { Logo2 } from "../logo2/Logo2";
 import {Footer} from "../layout/footer/Footer"
-import "./ReservationPage.css"
+import "./ReservationPage.scss"
 import { Link } from "react-router-dom";
 
 export const ReservationPage = () => {

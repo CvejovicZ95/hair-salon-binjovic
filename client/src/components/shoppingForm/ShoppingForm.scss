@@ -1,16 +1,16 @@
 .cart-page {
   text-align: center;
-}
 
-.cart-page h1 {
-  text-align: center;
-  margin: 20px 0;
-}
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
 
-.cart-page p {
-  font-size: 1.1em;
-  color: #555;
-  margin-top: 20px;
+  p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+  }
 }
 
 .cart-items {
@@ -29,23 +29,23 @@
   max-width: 400px;
   margin: 10px auto;
   transition: transform 0.2s, box-shadow 0.2s;
-}
 
-.cart-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.cart-item p {
-  margin: 0;
-}
+  p {
+    margin: 0;
 
-.cart-item p:first-child {
-  font-weight: bold;
-}
+    &:first-child {
+      font-weight: bold;
+    }
 
-.cart-item p:last-child {
-  color: #888;
+    &:last-child {
+      color: #888;
+    }
+  }
 }
 
 .remove-btn {
@@ -55,10 +55,10 @@
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-}
 
-.remove-btn:hover {
-  background-color: #c0392b;
+  &:hover {
+    background-color: #c0392b;
+  }
 }
 
 .order-form {
@@ -68,37 +68,41 @@
   margin: 20px auto;
   max-width: 500px;
   text-align: left;
+
+  h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 }
 
-.order-form h2 {
-  font-size: 1.4em;
-  margin-bottom: 20px;
+.cart-items-list {
+  h3 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
 }
 
-.order-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.order-form input {
-  width: calc(100% - 20px);
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.cart-items-list h3 {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.cart-total h2 {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
-  text-decoration: underline;
-  margin-top: 20px;
+.cart-total {
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: underline;
+    margin-top: 20px;
+  }
 }
 
 .delivery-note {
@@ -115,10 +119,10 @@
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-}
 
-.submit-btn:hover {
-  background-color: #219150;
+  &:hover {
+    background-color: #219150;
+  }
 }
 
 .back-to-products-btn {
@@ -134,10 +138,10 @@
   transition: 0.5s;
   border: 2px solid #333;
   border-radius: 10px;
-}
 
-.back-to-products-btn:hover {
-  transform: scale(1.1);
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 480px) {

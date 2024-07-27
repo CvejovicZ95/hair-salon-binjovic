@@ -1,0 +1,93 @@
+.logo-logout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    button {
+      font-size: 1.1em;
+      background: transparent;
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      margin: 50px auto 20px;
+      text-align: center;
+      cursor: pointer;
+      font-family: "Libre Baskerville";
+      transition: 0.5s;
+      border: 2px solid #333;
+      border-radius: 10px;
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  
+  .order-info-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    thead {
+      background-color: #333;
+      color: #fff;
+    }
+  
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+  
+    th {
+      font-weight: bold;
+    }
+  
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    }
+  }
+  
+  .product-info {
+    font-size: 14px;
+    color: #555;
+  
+    div {
+      margin-bottom: 5px;
+    }
+  }
+  
+  .order-btn {
+    font-size: 0.9em;
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:not(.disabled):hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

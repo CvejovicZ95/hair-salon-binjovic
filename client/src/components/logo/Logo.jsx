@@ -1,4 +1,4 @@
-import "./Logo.css";
+import "./Logo.scss";
 import { Link } from 'react-router-dom'
 export const Logo =()=>{
 

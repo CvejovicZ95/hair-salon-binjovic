@@ -16,12 +16,12 @@ body {
 
 a {
   color: black;
-}
 
-a:visited,
-a:hover,
-a:focus,
-a:active {
-  color: black;
-  text-decoration: none;
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active {
+    color: black;
+    text-decoration: none;
+  }
 }

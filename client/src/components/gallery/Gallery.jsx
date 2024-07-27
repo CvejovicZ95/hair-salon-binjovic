@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Gallery.css";
+import "./Gallery.scss";
 import { Logo2 } from "../logo2/Logo2";
 import { PhotoUploadForm} from "./PhotoUploadForm";
 import { Footer } from "../layout/footer/Footer";

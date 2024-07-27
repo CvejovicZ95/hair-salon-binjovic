@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "./Footer.scss";
 import { Logo2 } from "../../logo2/Logo2";
 import { MdLocationPin } from "react-icons/md";
 import { IoLogoInstagram } from "react-icons/io";

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./ShoppingForm.css";
+import "./ShoppingForm.scss";
 import { Logo2 } from "../logo2/Logo2";
 import { Footer } from "../layout/footer/Footer";
 import { CartContext } from "../../context/cartContext";

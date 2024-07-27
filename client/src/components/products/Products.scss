@@ -2,52 +2,56 @@
   text-align: center;
   font-family: "Libre Baskerville", serif;
 }
-.logo-and-cart{
+
+.logo-and-cart {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-
 
 .products-page h1 {
   font-size: 2.8em;
   margin-bottom: 20px;
   color: #333;
 }
-.categories select {
-  font-size: 1.2em;
-  padding: 10px 15px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  background-color: #fff;
-  color: #333;
-  transition: all 0.3s ease;
-}
 
-.categories select:hover {
-  background-color: #f0f0f0;
-}
+.categories {
+  select {
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
 
-.categories select:focus {
-  outline: none;
-  border-color: gold;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-.categories select option {
-  background-color: #fff;
-  color: #333;
-  padding: 10px 15px;
-}
+    &:hover {
+      background-color: #f0f0f0;
+    }
 
-.categories select option:hover {
-  background-color: #f0f0f0;
-}
+    &:focus {
+      outline: none;
+      border-color: gold;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
 
-.categories select option:checked {
-  background-color: gold;
-  color: white;
+    option {
+      background-color: #fff;
+      color: #333;
+      padding: 10px 15px;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &:checked {
+        background-color: gold;
+        color: white;
+      }
+    }
+  }
 }
 
 .products {
@@ -56,14 +60,15 @@
   overflow: hidden;
   background-color: rgb(255, 255, 255);
   margin-bottom: 100px;
-}
-.products h1 {
-  text-align: center;
-  display: inline-block;
-  border-bottom: 2px solid gold;
-  font-size: 36px;
-  margin: 0;
-  padding-top: 20px;
+
+  h1 {
+    text-align: center;
+    display: inline-block;
+    border-bottom: 2px solid gold;
+    font-size: 36px;
+    margin: 0;
+    padding-top: 20px;
+  }
 }
 
 .products-list {
@@ -75,12 +80,12 @@
 
 .category-section {
   margin-bottom: 40px;
-}
 
-.category-section h2 {
-  padding: 20px;
-  font-size: 2.3em;
-  color: black;
+  h2 {
+    padding: 20px;
+    font-size: 2.3em;
+    color: black;
+  }
 }
 
 .product-item {
@@ -98,32 +103,32 @@
   font-family: "Libre Baskerville", serif;
   z-index: 1;
   width: 250px;
-}
 
-.product-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../../public/kerastase2.png");
-  background-size: 90%;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  z-index: -1;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../public/kerastase2.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+  }
 
-.product-item p {
-  margin: 5px 0;
-  font-size: 1em;
-  color: black;
-  font-weight: 500;
-  position: relative;
-  z-index: 2;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
-  padding: 2px;
+  p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    padding: 2px;
+  }
 }
 
 .product-img {
@@ -146,10 +151,10 @@
   transition: 0.5s;
   border: 2px solid #333;
   border-radius: 10px;
-}
 
-.buy-btn:hover {
-  transform: scale(1.1);
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 1199px) and (min-width: 1025px) {
@@ -173,10 +178,11 @@
 }
 
 @media (max-width: 768px) {
-  .category-btn{
+  .category-btn {
     width: 90%;
     font-size: 1.2em;
   }
+
   .product-img {
     width: 100%;
     max-width: 300px;
@@ -186,8 +192,8 @@
 
 @media (max-width: 480px) {
   .products::before {
-    background-image: none; 
-    background-color: azure; 
+    background-image: none;
+    background-color: azure;
   }
 
   .product-img {

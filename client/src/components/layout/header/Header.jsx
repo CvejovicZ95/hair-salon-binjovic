@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Nav } from "../nav/Nav";
-import "./Header.css";
+import "./Header.scss";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);

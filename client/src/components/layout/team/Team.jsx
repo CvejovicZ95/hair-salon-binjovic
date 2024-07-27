@@ -1,4 +1,4 @@
-import "./Team.css"
+import "./Team.scss"
 
 export const Team=()=>{
   return(

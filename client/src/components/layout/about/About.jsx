@@ -1,4 +1,4 @@
-import "./About.css"
+import "./About.scss"
 
 export const About=()=>{
   return(

@@ -1,5 +1,5 @@
 import React from 'react';
-import './OrderStatus.css'; 
+import './OrderStatus.scss'; 
 
 export const OrderStatus = ({ status, onProcessedClick, onSentClick }) => {
     const isProcessed = status.processed;

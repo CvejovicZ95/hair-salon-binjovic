@@ -4,7 +4,7 @@ import { Footer } from "../layout/footer/Footer";
 import { Link } from "react-router-dom";
 import { useGetServices } from "../../hooks/useGetServices";
 import { scrollToTop } from "../../hooks/useScrollToTop";
-import "./Services.css";
+import "./Services.scss";
 
 export const Services = () => {
     const { groupedServices } = useGetServices();

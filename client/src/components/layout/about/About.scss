@@ -1,0 +1,142 @@
+.about {
+  padding: 0;
+
+  .about-fist-section {
+    display: flex;
+    width: 1200px;
+    margin: auto;
+    padding-top: 60px;
+    align-items: start;
+
+    .img1,
+    .img2 {
+      width: 400px;
+    }
+
+    .inside-first-section {
+      padding: 0 40px;
+      text-align: center;
+
+      h1 {
+        display: inline-block;
+        border-bottom: 2px solid gold;
+        margin: auto;
+        font-size: 36px;
+        font-family: "Libre Baskerville";
+      }
+
+      p {
+        text-align: start;
+        font-family: 'Libre Baskerville';
+        font-size: 28px;
+        color: slategray;
+      }
+    }
+  }
+
+  .img3 {
+    display: block;
+    margin: 30px auto;
+    width: 1200px;
+  }
+
+  @media (max-width: 1199px) and (min-width: 1025px) {
+    padding: 0;
+
+    .about-fist-section {
+      width: 1000px;
+
+      .img1,
+      .img2 {
+        width: 350px;
+      }
+
+      .inside-first-section {
+        p {
+          font-size: 22px;
+        }
+
+        h1 {
+          font-size: 26px;
+        }
+      }
+    }
+
+    .img3 {
+      width: 1000px;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    padding: 0;
+
+    .about-fist-section {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .inside-first-section {
+        padding: 50px;
+        position: absolute;
+        color: white;
+        opacity: 0.7;
+
+        p {
+          color: wheat;
+          font-size: 20px;
+          opacity: 0.7;
+        }
+      }
+
+      .img1,
+      .img2
+        {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    .img3{
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+    margin: 0;
+
+    .about-fist-section {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-top: 20px;
+
+      .inside-first-section {
+        padding: 50px;
+        position: absolute;
+        color: white;
+        opacity: 0.7;
+
+        h1 {
+          font-size: 26px;
+        }
+
+        p {
+          font-size: 14px;
+          padding: 5px;
+          color: wheat;
+          opacity: 0.7;
+        }
+      }
+
+      .img1,
+      .img2
+        {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    .img3{
+      width: 100%;
+    }
+  }
+}

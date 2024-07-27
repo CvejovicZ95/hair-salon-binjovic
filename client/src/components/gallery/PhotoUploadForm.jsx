@@ -3,7 +3,7 @@ import { FaUpload } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
-import "./PhotoUploadForm.css";
+import "./PhotoUploadForm.scss";
 
 export const PhotoUploadForm = ({ handleSubmit: uploadHandler }) => {
     const [alt, setAlt] = useState('');

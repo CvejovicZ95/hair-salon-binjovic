@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./LayoutServices.css";
+import "./LayoutServices.scss";
 import { scrollToTop } from "../../../hooks/useScrollToTop";
 
 export const LayoutServices = () => {

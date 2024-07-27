@@ -4,7 +4,7 @@ import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
 import { useGetProductsByCategory } from "../../hooks/useGetProducts";
 import { CartContext } from "../../context/cartContext";
-import "./Products.css";
+import "./Products.scss";
 
 export const Products = () => {
   const { productsByCategory, loading, error } = useGetProductsByCategory('kerastase');

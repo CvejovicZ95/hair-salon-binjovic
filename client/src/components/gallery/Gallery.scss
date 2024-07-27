@@ -4,29 +4,34 @@
   padding: 60px 30px; 
   color: black; 
   font-family: "Libre Baskerville", serif;
+
+  &.preparate-active {
+    .image-grid {
+      background-color: #f0f0f0;
+      padding: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    }
+  }
 }
 
 .gallery-section {
   margin-bottom: 60px; 
+
+  h2 {
+    display: inline-block;
+    border: 2px solid gold; 
+    padding: 15px 20px; 
+    background-color: rgba(255, 215, 0, 0.2);
+    border-radius: 10px; 
+    margin-bottom: 20px; 
+  }
 }
-
-
-.gallery-section h2 {
-  display: inline-block;
-  border: 2px solid gold; 
-  padding: 15px 20px; 
-  background-color: rgba(255, 215, 0, 0.2);
-  border-radius: 10px; 
-  margin-bottom: 20px; 
-}
-
 
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 40px; 
 }
-
 
 .image-container-gallery {
   overflow: hidden; 
@@ -39,17 +44,11 @@
   height: auto; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-
-.gallery-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.gallery-div.preparate-active .image-grid {
-  background-color: #f0f0f0;
-  padding: 30px;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .tab-buttons {
@@ -57,28 +56,29 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: 1px solid gold;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &.active {
+      background-color: gold;
+      color: white;
+    }
+
+    &:hover {
+      background-color: rgba(255, 215, 0, 0.5);
+      color: black;
+    }
+  }
 }
 
-.tab-buttons button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  border: 1px solid gold;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.tab-buttons button.active {
-  background-color: gold;
-  color: white;
-}
-
-.tab-buttons button:hover {
-  background-color: rgba(255, 215, 0, 0.5);
-  color: black;
-}
-.delete-photo-btn{
+.delete-photo-btn {
   padding: 10px 20px;
   font-size: 0.8em;
   border: none;
@@ -88,16 +88,17 @@
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 10px;
-}
-.delete-photo-btn:hover{
-  background-color: red;
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: red;
+  }
 }
 
 @media (max-width: 769px) {
   .tab-buttons button {
     font-size: 0.9em;
   }
+
   .gallery-div.preparate-active .image-grid {
     background-color: #f0f0f0;
     height: auto;
@@ -106,11 +107,11 @@
   }
 }
 
-
 @media (max-width: 480px) {
   .tab-buttons button {
     font-size: 0.7em;
   }
+
   .gallery-div.preparate-active .image-grid {
     background-color: #f0f0f0;
     height: auto;

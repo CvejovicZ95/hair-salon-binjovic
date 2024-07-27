@@ -5,7 +5,7 @@ import { useGetOrder } from "../../hooks/useGetOrders";
 import { useLogoutAdmin } from "../../hooks/useAdminLoginLogout";
 import { markOrderAsProcessedHandler, markOrderAsSentHandler } from "../../hooks/useChangeOrderStatus"
 import { Link } from "react-router-dom";
-import "./OrderInfo.css";
+import "./OrderInfo.scss";
 
 export const OrderInfo = () => {
     const { allOrders } = useGetOrder();

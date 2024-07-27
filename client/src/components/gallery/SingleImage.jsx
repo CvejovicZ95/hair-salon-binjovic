@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../../context/authContext";
 import { useGetImages } from "../../hooks/useGetPhotosGallery";
-import "./Gallery.css"
+import "./Gallery.scss"
 
 export const ImageContainer = ({ src, alt, id }) => {
   const { authUser } = useAuthContext();

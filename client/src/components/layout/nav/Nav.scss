@@ -86,10 +86,6 @@ a {
   margin-left: 40px;
 }
 
-.logo img {
-  width: 150px;
-}
-
 .close-icon {
   color: white;
 }
@@ -116,7 +112,7 @@ a {
     &.open {
       top: 0;
       display: block;
-      margin-top: 154px;
+      margin-top: 168px;
       transition: 0.9s ease;
     }
   
@@ -155,7 +151,7 @@ a {
     &.open {
       top: 0;
       display: block;
-      margin-top: 124px;
+      margin-top: 154px;
       transition: 0.9s ease;
     }
   
@@ -171,7 +167,7 @@ a {
     }
   }
   .logo img {
-    width: 120px;
+    width: 150px;
   }
 }
 

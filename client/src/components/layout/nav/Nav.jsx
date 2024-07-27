@@ -4,7 +4,7 @@ import { MdClose } from "react-icons/md";
 import { Logo } from "../../logo/Logo";
 import { scrollToTop } from "../../../hooks/useScrollToTop";
 import { useAuthContext } from "../../../context/authContext";
-import "./Nav.css"
+import "./Nav.scss"
 
 export const Nav = () => {
   const { authUser } = useAuthContext();

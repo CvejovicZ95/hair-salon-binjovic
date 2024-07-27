@@ -34,12 +34,14 @@ export const Services = () => {
             </div>
             <div className="services-list">
                 {selectedCategory &&
-                    groupedServices[selectedCategory].map((service) => (
-                        <div key={service._id} className="service-item">
-                            <h3>{service.name}</h3>
-                            <p>{service.price} RSD</p>
-                        </div>
-                    ))}
+                    groupedServices[selectedCategory]
+                        .filter(service => !service.deleted)
+                        .map((service) => (
+                            <div key={service._id} className="service-item">
+                                <h3>{service.name}</h3>
+                                <p>{service.price} RSD</p>
+                            </div>
+                        ))}
             </div>
             <Link to={"/reservation"}>
                 <button onClick={scrollToTop} className="service-booking-btn">

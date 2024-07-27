@@ -393,3 +393,10 @@
 {"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-27T10:36:20.558Z"}
 {"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-27T10:44:00.170Z"}
 {"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-27T10:44:10.754Z"}
+{"buffer":{"data":[102,153,0,152,253,43,34,233,211,92,98,148],"type":"Buffer"},"level":"info","message":"Service updated successfully","timestamp":"2024-07-27T12:23:19.790Z"}
+{"buffer":{"data":[102,153,0,152,253,43,34,233,211,92,98,148],"type":"Buffer"},"level":"info","message":"Service updated successfully","timestamp":"2024-07-27T12:23:34.940Z"}
+{"level":"info","message":"New service created","timestamp":"2024-07-27T12:24:05.833Z"}
+{"level":"info","message":"Service successfully marked as deleted:","timestamp":"2024-07-27T12:24:47.415Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-27T12:39:24.819Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-27T12:39:38.217Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-27T12:39:52.871Z"}

@@ -61,13 +61,18 @@ export const Products = () => {
         ) : (
           <div className="products-list">
             {groupedProducts[selectedCategory] && groupedProducts[selectedCategory].map(product => (
-              <div key={product._id} className="product-item">
+              <div
+                key={product._id}  
+                className={`product-item ${!product.inStock ? 'out-of-stock' : ''}`}>
                 <p>{product.preparate} {product.quantity}</p>
                 <p>{product.price} RSD</p>
                 <button 
                   onClick={() => handleAddToCart(product)} 
                   className="buy-btn"
-                >Naruči</button>
+                  disabled={!product.inStock}
+                >
+                  {product.inStock ? 'Naruči' : 'Nema na stanju'}
+                </button>
               </div>
             ))}
           </div>

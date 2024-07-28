@@ -1,14 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Logo2 } from "../logo2/Logo2";
+import { ProductUploadForm } from "./UploadProductForm";
 import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
-import { useGetProductsByCategory } from "../../hooks/useGetProducts";
+import { useGetProducts, useGetProductsByCategory } from "../../hooks/useGetProducts";
+import { useAuthContext } from "../../context/authContext"
 import { CartContext } from "../../context/cartContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Products.scss";
 
 export const Products = () => {
-  const { productsByCategory, loading, error } = useGetProductsByCategory('kerastase');
+  const { products, loading, error, createProductHandler, updateProductHandler, markProductAsOnlineHandler, markProductAsSoldHandler } = useGetProducts();
+  const { productsByCategory} = useGetProductsByCategory('kerastase');
   const { addToCart } = useContext(CartContext);
+  const { authUser } = useAuthContext();
 
   const [selectedCategory, setSelectedCategory] = useState('kerastase');
 
@@ -32,6 +38,17 @@ export const Products = () => {
     addToCart(product);
   };
 
+  const handleMarkProductAsSold = async (productId) => {
+    console.log(`handleMarkProductAsSold called with productId: ${productId}`);
+    await markProductAsSoldHandler(productId);
+};
+
+const handleMarkProductAsOnline = async (productId) => {
+    console.log(`handleMarkProductAsOnline called with productId: ${productId}`);
+    await markProductAsOnlineHandler(productId);
+};
+  
+
   const groupedProducts = groupProductsByCategoryName(productsByCategory);
 
   return (
@@ -40,6 +57,7 @@ export const Products = () => {
         <Logo2 />
         <Shopcart />
       </div>
+      {authUser && (<ProductUploadForm handleSubmit={createProductHandler}/>)}
       <h1>PREPARATI</h1>
       <div className="categories">
         <select
@@ -73,12 +91,18 @@ export const Products = () => {
                 >
                   {product.inStock ? 'Naruči' : 'Nema na stanju'}
                 </button>
+                {authUser && (
+              <>
+                <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Mark as Sold</button>
+                <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Mark as Online</button>
+              </>)}
               </div>
             ))}
           </div>
         )}
       </div>
       <Footer />
+      <ToastContainer/>
     </div>
   );
 };

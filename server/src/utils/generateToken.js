@@ -20,5 +20,5 @@ export const generateToken = (userId, res) => {
         sameSite:'none'
     })
 
-    return token
+    return token;
 }

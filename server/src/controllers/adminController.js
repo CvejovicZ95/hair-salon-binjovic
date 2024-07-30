@@ -40,8 +40,6 @@ export const loginAdmin = async (req, res) => {
             return res.status(400).json({ error: 'Pogrešno korisničko ime ili lozinka'})
         }
 
-        res.cookie('token', '', { maxAge: 0, httpOnly: true, sameSite: 'none' });
-
         const token = generateToken(admin._id, res)
 
         logger.info('Admin logged in successfully', admin.username)
@@ -57,7 +55,7 @@ export const loginAdmin = async (req, res) => {
 
 export const logoutAdmin = async (req, res) => {
     try {
-        res.cookie('token', '', { maxAge: 0, httpOnly: true, sameSite: 'none' });
+        res.cookie('token', '', { maxAge: 0 });
         logger.info('Admin logged out successfully')
         res.status(200).json({message: 'Izlogovali ste se'})
     } catch (error) {

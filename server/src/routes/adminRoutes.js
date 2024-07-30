@@ -5,5 +5,5 @@ import { authenticateToken } from '../middlware/authToken.js'
 export const adminRouter = express.Router()
 
 adminRouter.post('/registerAdmin',registerAdmin)
-adminRouter.post('/loginAdmin', loginAdmin)
-adminRouter.post('/logoutAdmin',logoutAdmin)
+adminRouter.post('/loginAdmin', authenticateToken, loginAdmin)
+adminRouter.post('/logoutAdmin',logoutAdmin) 

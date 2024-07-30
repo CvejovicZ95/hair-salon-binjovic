@@ -21,14 +21,12 @@ export const createProduct = async (
     inStock
 ) => {
     try {
-        console.log('Sending request to API with data:', { name, preparate, quantity, price, inStock });
         const res = await fetch(`${apiUrl}/api/products`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, preparate, quantity, price, inStock }),
         });
         const data = await res.json();
-        console.log('Response from API:', data);
         if (data.error) {
             throw new Error(data.error);
         }
@@ -41,7 +39,6 @@ export const createProduct = async (
 
 export const markProductAsSold = async (id) => {
     try {
-        console.log(`markProductAsSold called with id: ${id}`);
         const res = await fetch(`${apiUrl}/api/product/${id}/sold`, {
             method: "PUT",
             headers: {
@@ -53,7 +50,6 @@ export const markProductAsSold = async (id) => {
         if (data.error) {
             throw new Error(data.error);
         }
-        console.log(`markProductAsSold response: ${JSON.stringify(data)}`);
         return data;
     } catch (error) {
         console.error(`Error in markProductAsSold: ${error.message}`);
@@ -63,7 +59,6 @@ export const markProductAsSold = async (id) => {
 
 export const markProductAsOnline = async (id) => {
     try {
-        console.log(`markProductAsOnline called with id: ${id}`);
         const res = await fetch(`${apiUrl}/api/product/${id}/online`, {
             method: "PUT",
             headers: {
@@ -75,7 +70,6 @@ export const markProductAsOnline = async (id) => {
         if (data.error) {
             throw new Error(data.error);
         }
-        console.log(`markProductAsOnline response: ${JSON.stringify(data)}`);
         return data;
     } catch (error) {
         console.error(`Error in markProductAsOnline: ${error.message}`);
@@ -105,6 +99,24 @@ export const updateProduct = async (
         })
         return true;
     } catch (error) {
+        throw new Error(error.message)
+    }
+}
+
+export const deleteProduct = async (id) => {
+    try {
+        const res = await fetch(`${apiUrl}/api/product/${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+        });
+        if (!res.ok) {
+            const error = await res.json();
+            throw new Error(error.message || 'Error deleting product')
+        }
+        const result = await res.json()
+        return result;
+    } catch (error){
+        console.error('Error in deleteProduct:', error.message)
         throw new Error(error.message)
     }
 }

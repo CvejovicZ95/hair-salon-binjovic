@@ -4,14 +4,15 @@ import { ProductUploadForm } from "./UploadProductForm";
 import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
 import { useGetProducts } from "../../hooks/useGetProducts";
-import { useAuthContext } from "../../context/authContext"
+import { useAuthContext } from "../../context/authContext";
 import { CartContext } from "../../context/cartContext";
+import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Products.scss";
 
 export const Products = () => {
-  const { products, loading, error, createProductHandler, updateProductHandler, markProductAsOnlineHandler, markProductAsSoldHandler } = useGetProducts();
+  const { products, loading, error, createProductHandler, updateProductHandler, markProductAsOnlineHandler, markProductAsSoldHandler, deleteProductHandler } = useGetProducts();
   const { addToCart } = useContext(CartContext);
   const { authUser } = useAuthContext();
 
@@ -20,7 +21,7 @@ export const Products = () => {
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
     products.forEach(product => {
-      const categoryName = product.name;
+      const categoryName = product.name; // Trebali biste koristiti category umjesto name ako koristite kategorije
       if (!groupedProducts[categoryName]) {
         groupedProducts[categoryName] = [];
       }
@@ -39,12 +40,22 @@ export const Products = () => {
 
   const handleMarkProductAsSold = async (productId) => {
     await markProductAsSoldHandler(productId);
-};
+  };
 
-const handleMarkProductAsOnline = async (productId) => {
+  const handleMarkProductAsOnline = async (productId) => {
     await markProductAsOnlineHandler(productId);
-};
-  
+  };
+
+  const handleDeleteProduct = async (productId) => {
+    const confirmed = window.confirm('Da li ste sigurni da želite da obrišete proizvod?');
+    if (confirmed) {
+      try {
+        await deleteProductHandler(productId);
+      } catch (error) {
+        toast.error(error.message);
+      }
+    }
+  };
 
   const groupedProducts = groupProductsByCategoryName(products);
 
@@ -89,17 +100,25 @@ const handleMarkProductAsOnline = async (productId) => {
                   {product.inStock ? 'Naruči' : 'Nema na stanju'}
                 </button>
                 {authUser && (
-              <>
-                <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Nema na stanju</button>
-                <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Na stanju</button>
-              </>)}
+                  <>
+                    <div>
+                      {product.inStock ? (
+                        <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Nema na stanju</button>
+                      ) : (
+                        <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Na stanju</button>
+                      )}
+                    </div>
+                    <button className="delete-product-button" onClick={() => handleDeleteProduct(product._id)}>Obriši</button>
+                    <button className="update-product-button" onClick={() => handleDeleteProduct(product._id)}>Uredi</button>
+                  </>
+                )}
               </div>
             ))}
           </div>
         )}
       </div>
       <Footer />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -533,3 +533,31 @@
 {"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T09:56:54.674Z"}
 {"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T09:56:55.724Z"}
 {"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T09:56:56.381Z"}
+{"level":"info","message":"Image uploaded!","timestamp":"2024-07-30T09:58:56.001Z"}
+{"level":"info","message":"Image deleted successfully","timestamp":"2024-07-30T09:59:08.311Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T09:59:50.482Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T10:01:41.309Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:01:53.169Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:01:53.953Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:01:58.438Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:01:58.955Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:03:11.055Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:03:11.586Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T10:16:22.415Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:16:27.858Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T10:19:28.775Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:19:32.543Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:25:01.516Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:25:03.189Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:25:47.373Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:25:48.463Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:25:51.640Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T10:25:52.171Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T10:26:06.545Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T10:26:54.379Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:27:08.083Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T10:27:08.691Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T10:27:19.914Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:27:32.241Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T10:30:20.953Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:30:27.676Z"}

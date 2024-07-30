@@ -77,7 +77,7 @@ export const ProductUploadForm = ({ handleSubmit: createProductHandler }) => {
             <div>
                 <label htmlFor="quantity">Mililitara:</label>
                 <input
-                    type="number"
+                    type="text"
                     id="quantity"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}

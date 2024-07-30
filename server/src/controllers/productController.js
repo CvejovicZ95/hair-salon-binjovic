@@ -1,4 +1,4 @@
-import { getAllProducts, addProduct, updateProductById, markProductAsSold, markProductAsOnline } from "../service/productService.js"
+import { getAllProducts, addProduct, updateProductById, markProductAsSold, markProductAsOnline, deleteProduct } from "../service/productService.js"
 
 export const getAllProductsController = async (req, res) => {
     try {
@@ -45,6 +45,16 @@ export const markProductAsOnlineController = async (req, res) => {
         const productId = req.params.id
         await markProductAsOnline(productId)
         res.status(200).json({ message: 'Product marked as online successfully'})
+    } catch (error) {
+        res.status(500).json('Server error')
+    }
+}
+
+export const deleteProductController = async (req, res) => {
+    try {
+        const productId = req.params.id
+        await deleteProduct(productId)
+        res.status(200).json({ message: 'Product deleted successfully'})
     } catch (error) {
         res.status(500).json('Server error')
     }

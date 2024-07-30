@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from "react-toastify";
-import { getProducts, createProduct, markProductAsSold, markProductAsOnline, updateProduct } from '../api/productsApi';
+import { getProducts, createProduct, markProductAsSold, markProductAsOnline, updateProduct, deleteProduct } from '../api/productsApi';
 
 export const useGetProducts = () => {
     const [products, setProducts] = useState([]);
@@ -81,6 +81,18 @@ export const useGetProducts = () => {
         }
     };
 
-    return { products, loading, error, markProductAsSoldHandler, markProductAsOnlineHandler, createProductHandler, updateProductHandler };
+    const deleteProductHandler = async (id) => {
+        try {
+            await deleteProduct(id)
+            setProducts((prevProducts) => {
+                const updatedProducts = prevProducts.filter((product) => product._id !== id)
+                return updatedProducts
+            })
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+    return { products, loading, error, markProductAsSoldHandler, markProductAsOnlineHandler, createProductHandler, updateProductHandler, deleteProductHandler };
 };
 

@@ -73,3 +73,17 @@ export const markProductAsOnline = async (productId) => {
         throw new Error('Error marking product as online');
     }
 };
+
+export const deleteProduct = async (productId) => {
+    try {
+        const product = await Product.findByIdAndDelete(productId)
+        if (!product) {
+            logger.error('Product not found:', productId)
+            throw new Error('Product not found')
+        }
+        logger.info('Product deleted successfully')
+    } catch (error) {
+        logger.error('Error while deleting product', error.message)
+        throw new Error('Error deleting product')
+    }
+}

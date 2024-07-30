@@ -166,6 +166,37 @@
       background-color: #0056b3;
     }
   }
+  .delete-product-button{
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    transition: background-color 0.3s;
+    background-color: rgb(252, 55, 55);
+
+    &:hover {
+      background-color: red;
+    }
+  }
+  .update-product-button{
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    transition: background-color 0.3s;
+    background-color: rgb(0, 187, 0);
+
+    &:hover {
+      background-color: green($color: #000000);
+    }
+  }
+  
 }
 
 .product-img {

@@ -9,11 +9,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    required: true,
-    enum: ['kerastase', 'loreal'],
-  },
   quantity: {
     type: String,
     required: true,

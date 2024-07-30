@@ -3,7 +3,7 @@ import { Logo2 } from "../logo2/Logo2";
 import { ProductUploadForm } from "./UploadProductForm";
 import { Shopcart } from "../shopcart/Shopcart";
 import { Footer } from "../layout/footer/Footer";
-import { useGetProducts, useGetProductsByCategory } from "../../hooks/useGetProducts";
+import { useGetProducts } from "../../hooks/useGetProducts";
 import { useAuthContext } from "../../context/authContext"
 import { CartContext } from "../../context/cartContext";
 import { ToastContainer } from "react-toastify";
@@ -12,7 +12,6 @@ import "./Products.scss";
 
 export const Products = () => {
   const { products, loading, error, createProductHandler, updateProductHandler, markProductAsOnlineHandler, markProductAsSoldHandler } = useGetProducts();
-  const { productsByCategory} = useGetProductsByCategory('kerastase');
   const { addToCart } = useContext(CartContext);
   const { authUser } = useAuthContext();
 
@@ -39,17 +38,15 @@ export const Products = () => {
   };
 
   const handleMarkProductAsSold = async (productId) => {
-    console.log(`handleMarkProductAsSold called with productId: ${productId}`);
     await markProductAsSoldHandler(productId);
 };
 
 const handleMarkProductAsOnline = async (productId) => {
-    console.log(`handleMarkProductAsOnline called with productId: ${productId}`);
     await markProductAsOnlineHandler(productId);
 };
   
 
-  const groupedProducts = groupProductsByCategoryName(productsByCategory);
+  const groupedProducts = groupProductsByCategoryName(products);
 
   return (
     <div className="products-page">
@@ -93,8 +90,8 @@ const handleMarkProductAsOnline = async (productId) => {
                 </button>
                 {authUser && (
               <>
-                <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Mark as Sold</button>
-                <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Mark as Online</button>
+                <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Nema na stanju</button>
+                <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Na stanju</button>
               </>)}
               </div>
             ))}

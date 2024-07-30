@@ -42,7 +42,6 @@ export const Services = () => {
         if (confirmed) {
             try {
                 await deleteServiceHandler(id);
-                toast.success('Uspešno ste obrisali uslugu');
             } catch (error) {
                 toast.error(error.message);
             }

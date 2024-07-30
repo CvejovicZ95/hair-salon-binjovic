@@ -39,7 +39,6 @@ export const useGetServices = () => {
                 return acc;
             }, {});
             setGroupedServices(grouped);
-            toast.success('Uspesno ste dodali uslugu');
         } catch (error) {
             toast.error(error.message);
         }
@@ -70,7 +69,6 @@ export const useGetServices = () => {
                 return acc;
             }, {});
             setGroupedServices(updatedService);
-            toast.success('Uspesno ste promenili podatke usluge.');
         } catch (error) {
             toast.error(error.message);
         }

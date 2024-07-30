@@ -11,19 +11,9 @@ export const getAllProducts = async () => {
     }
 }
 
-export const getProductsByCategory = async (category) => {
+export const addProduct = async (name, preparate, quantity, price, inStock) => {
     try {
-        const products = await Product.find({ category })
-        return products
-    } catch (error) {
-        logger.error('Error fetching products by category', error.message)
-        throw new Error ('Error fetching products by category')
-    }
-}
-
-export const addProduct = async (name, preparate, category, quantity, price, inStock) => {
-    try {
-        const newProduct = new Product({name, preparate, category, quantity, price, inStock})
+        const newProduct = new Product({name, preparate, quantity, price, inStock})
         await newProduct.save()
 
         logger.info('Product added successfully')

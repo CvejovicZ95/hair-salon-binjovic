@@ -13,33 +13,19 @@ export const getProducts = async () => {
     }
 }
 
-export const getProductsByCategory = async (category) => {
-    try {
-        const res = await fetch (`${apiUrl}/api/products/category/${category}`)
-        const data = await res.json()
-        if(data.error){
-            throw new Error(data.error)
-        }
-        return data
-    } catch (error){
-        throw new Error(error.message)
-    }
-}
-
 export const createProduct = async (
     name,
     preparate,
-    category,
     quantity,
     price,
     inStock
 ) => {
     try {
-        console.log('Sending request to API with data:', { name, preparate, category, quantity, price, inStock });
+        console.log('Sending request to API with data:', { name, preparate, quantity, price, inStock });
         const res = await fetch(`${apiUrl}/api/products`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, preparate, category, quantity, price, inStock }),
+            body: JSON.stringify({ name, preparate, quantity, price, inStock }),
         });
         const data = await res.json();
         console.log('Response from API:', data);
@@ -101,7 +87,6 @@ export const updateProduct = async (
     id,
     updatedName,
     updatedPreparate,
-    updatedCategory,
     updatedQuantity,
     updatedPrice,
     updatedInStock
@@ -113,7 +98,6 @@ export const updateProduct = async (
             body: JSON.stringify({
                 name: updatedName,
                 preparate: updatedPreparate,
-                category: updatedCategory,
                 quantity: updatedQuantity,
                 price: updatedPrice,
                 inStock: updatedInStock

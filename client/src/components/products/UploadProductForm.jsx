@@ -75,7 +75,7 @@ export const ProductUploadForm = ({ handleSubmit: createProductHandler }) => {
                 />
             </div>
             <div>
-                <label htmlFor="quantity">Količina:</label>
+                <label htmlFor="quantity">Mililitara:</label>
                 <input
                     type="number"
                     id="quantity"

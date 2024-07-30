@@ -561,3 +561,44 @@
 {"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:27:32.241Z"}
 {"level":"info","message":"Product added successfully","timestamp":"2024-07-30T10:30:20.953Z"}
 {"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T10:30:27.676Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T10:53:47.798Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T10:59:56.274Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:00:20.814Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:00:33.926Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:02:56.946Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:03:28.704Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:10:53.167Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:11:05.311Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:11:59.275Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:12:47.868Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:31:33.084Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:31:41.120Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:32:08.856Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:32:20.238Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:33:13.983Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:33:25.994Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:33:33.700Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:34:12.296Z"}
+{"level":"error","message":"Invalid username or password","timestamp":"2024-07-30T11:36:17.544Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:36:22.292Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:36:24.741Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:38:54.008Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:39:00.290Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:40:00.932Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:40:07.104Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:40:21.056Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T11:40:30.724Z"}
+{"level":"info","message":"Product successfully marked as sold:","timestamp":"2024-07-30T11:40:31.349Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T11:40:41.742Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T11:40:45.440Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:41:02.025Z"}
+{"level":"info","message":"Product successfully marked as online again:","timestamp":"2024-07-30T11:41:12.462Z"}
+{"level":"info","message":"Product added successfully","timestamp":"2024-07-30T11:41:17.608Z"}
+{"level":"info","message":"Product deleted successfully","timestamp":"2024-07-30T11:41:20.479Z"}
+{"buffer":{"data":[102,153,0,152,253,43,34,233,211,92,98,148],"type":"Buffer"},"level":"info","message":"Service updated successfully","timestamp":"2024-07-30T11:41:38.459Z"}
+{"buffer":{"data":[102,153,0,152,253,43,34,233,211,92,98,148],"type":"Buffer"},"level":"info","message":"Service updated successfully","timestamp":"2024-07-30T11:41:43.064Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:41:46.673Z"}
+{"level":"info","message":"New order created successfully","timestamp":"2024-07-30T11:42:15.065Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:42:32.304Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-07-30T11:43:14.719Z"}
+{"level":"info","message":"Admin logged in successfully","timestamp":"2024-07-30T11:43:24.765Z"}

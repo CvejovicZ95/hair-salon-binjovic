@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
 import path from 'path'
@@ -11,6 +12,7 @@ import { productRouter } from './src/routes/productRoutes.js'
 import { serviceRouter } from './src/routes/serviceRoutes.js'
 import { orderRouter } from './src/routes/orderRoutes.js'
 import { adminRouter } from './src/routes/adminRoutes.js'
+import { tokenRouter} from "./src/routes/tokenRoutes.js"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -27,6 +29,7 @@ const corsOptions={
 }
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors(corsOptions))
 
 app.use('/images', express.static(path.join(__dirname, '../server/images')))
@@ -36,6 +39,7 @@ app.use('/api', productRouter)
 app.use('/api', serviceRouter)
 app.use('/api', orderRouter)
 app.use('/api', adminRouter)
+app.use('/api', tokenRouter)
 
 app.listen(PORT,()=>{
   connect()

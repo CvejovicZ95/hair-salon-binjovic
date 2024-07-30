@@ -1,5 +1,6 @@
 import express from 'express'
 import { registerAdmin, loginAdmin, logoutAdmin } from '../controllers/adminController.js'
+import { authenticateToken } from '../middlware/authToken.js'
 
 export const adminRouter = express.Router()
 

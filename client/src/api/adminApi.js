@@ -6,17 +6,20 @@ export const loginAdmin = async (username, password) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
+            credentials: 'include' // Uverite se da je ovo prisutno
         });
-        const data = await res.json();
-        if (data.error) {
-            throw new Error("Pogrešno korisničko ime ili lozinka")
-        }
-        return data;
-    } catch (error) {
-        throw new Error(error.message)
-    }
-}
 
+        if (res.ok) {
+            const data = await res.json();
+            return data;
+        } else {
+            const errorData = await res.json();
+            throw new Error(errorData.error || 'Neuspešna prijava');
+        }
+    } catch (error) {
+        throw new Error(error.message || 'Neuspešna prijava');
+    }
+};
 export const logoutAdmin = async () => {
     try {
         const res = await fetch(`${apiUrl}/api/logoutAdmin`, {

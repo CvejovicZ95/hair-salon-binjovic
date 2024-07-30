@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const AuthContext = createContext();
 
 export const useAuthContext = () => {
-    return useContext(AuthContext)
+    return useContext(AuthContext);
 }
 
 export const AuthProvider = ({ children }) => {
@@ -12,25 +12,37 @@ export const AuthProvider = ({ children }) => {
 
     const login = (userData) => {
         setAuthUser(userData);
-        localStorage.setItem("authUser", JSON.stringify(userData))
+        document.cookie = `token=${userData.token}; path=/; secure; HttpOnly`;
     };
 
     const logout = () => {
         setAuthUser(null);
-        localStorage.removeItem("authUser")
-    }
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; HttpOnly";
+    };
 
-    useEffect(()=> {
-        const storedUser = localStorage.getItem("authUser");
-        if (storedUser) {
-            setAuthUser(JSON.parse(storedUser))
-        }
-    },[])
+    useEffect(() => {
+        const checkToken = async () => {
+            try {
+                const res = await fetch('/api/validateToken', { credentials: 'include' });
+                if (res.ok) {
+                    const data = await res.json();
+                    setAuthUser(data.user);
+                } else {
+                    logout();
+                }
+            } catch (error) {
+                logout();
+            }
+        };
+
+        checkToken();
+    }, [])
 
     return (
         <AuthContext.Provider value={{ authUser, login, logout }}>
             {children}
         </AuthContext.Provider>
-    )
+    );
 }
-AuthProvider.propTypes = { children: PropTypes.any}
+
+AuthProvider.propTypes = { children: PropTypes.any };

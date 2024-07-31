@@ -37,8 +37,12 @@ This project involves creating a visually appealing website for the hair salon "
 
 ## Environment Variables (Server Folder)
 
-- `DATABASE`: MongoDB connection string  
+- `DATABASE_URL`: MongoDB connection string  
 - `PORT`: Port (e.g., 4500)
+- `MAILGUN_API_KEY`: Mailgun API key
+- `MAILGUN_DOMAIN`: Mailgun domain
+- `MAILGUN_FROM`: Mailgun from address
+- `MAILGUN_HOST`: Mailgun host
 
 ## Environment Variables (Client Folder)
 

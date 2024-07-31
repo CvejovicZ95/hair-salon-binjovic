@@ -2,14 +2,17 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
 export const getAllOrders = async () => {
     try {
-        const res = await fetch(`${apiUrl}/api/orders`)
-        const data = await res.json()
+        const res = await fetch(`${apiUrl}/api/orders`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+        const data = await res.json();
         if (data.error) {
-            throw new Error(data.error)
+            throw new Error(data.error);
         }
-        return data
+        return data;
     } catch (error) {
-        throw new Error(error.message)
+        throw new Error(error.message);
     }
 }
 
@@ -60,6 +63,7 @@ export const markOrderAsProcessed = async (id) => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ processed: true }),
+            credentials: 'include'
         })
         const data = await res.json();
         if(data.error) {
@@ -79,6 +83,7 @@ export const markOrderAsSent = async (id) => {
             "Content-Type": "application/json",
             },
             body: JSON.stringify({ sent: true }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.error) {

@@ -23,6 +23,7 @@ export const uploadPhoto = async (alt, image, category) => {
     const res = await fetch(`${apiUrl}/api/gallery`, {
       method: "POST",
       body: formData,
+      credentials: 'include'
     })
 
     if (!res.ok) {
@@ -46,6 +47,7 @@ export const deletePhoto = async (id) => {
     const response = await fetch(`${apiUrl}/api/gallery/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
+      credentials: 'include'
     });
 
     if (!response.ok) {

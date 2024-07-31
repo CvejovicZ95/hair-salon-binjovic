@@ -45,6 +45,7 @@ export const markProductAsSold = async (id) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ inStock: false }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.error) {
@@ -65,6 +66,7 @@ export const markProductAsOnline = async (id) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ inStock: true }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.error) {
@@ -96,6 +98,7 @@ export const updateProduct = async (
                 price: updatedPrice,
                 inStock: updatedInStock
             }),
+            credentials: 'include'
         })
         return true;
     } catch (error) {
@@ -108,6 +111,7 @@ export const deleteProduct = async (id) => {
         const res = await fetch(`${apiUrl}/api/product/${id}`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
+            credentials: 'include'
         });
         if (!res.ok) {
             const error = await res.json();

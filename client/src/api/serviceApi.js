@@ -19,6 +19,7 @@ export const createService = async (name, price, category, deleted) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, price, category, deleted }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.error) {
@@ -36,6 +37,7 @@ export const deleteService = async (id) => {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ deleted: true }),
+            credentials: 'include'
         });
         const data = await res.json()
         if (data.error) {
@@ -58,6 +60,7 @@ export const updateService = async (id, updatedName, updatedPrice, updatedCatego
                 category: updatedCategory,
                 deleted: updatedDeleted,
             }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.error) {

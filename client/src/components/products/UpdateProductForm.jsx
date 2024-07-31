@@ -1,5 +1,6 @@
-import React from 'react';
-import './UpdateProductForm.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import "./UpdateProductForm.scss";
 
 export const UpdateProductForm = ({
   product,
@@ -13,14 +14,16 @@ export const UpdateProductForm = ({
   setUpdatedQuantity,
   setUpdatedPrice,
   setUpdatedInStock,
-  handleSaveUpdate
+  handleSaveUpdate,
 }) => (
   <div className="update-product-form">
     <h2>Update Product</h2>
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      handleSaveUpdate(product._id);
-    }}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSaveUpdate(product._id);
+      }}
+    >
       <label>
         Name:
         <input
@@ -65,3 +68,21 @@ export const UpdateProductForm = ({
     </form>
   </div>
 );
+
+UpdateProductForm.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
+  updatedName: PropTypes.string.isRequired,
+  updatedPreparate: PropTypes.string.isRequired,
+  updatedQuantity: PropTypes.string.isRequired,
+  updatedPrice: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  updatedInStock: PropTypes.bool.isRequired,
+  setUpdatedName: PropTypes.func.isRequired,
+  setUpdatedPreparate: PropTypes.func.isRequired,
+  setUpdatedQuantity: PropTypes.func.isRequired,
+  setUpdatedPrice: PropTypes.func.isRequired,
+  setUpdatedInStock: PropTypes.func.isRequired,
+  handleSaveUpdate: PropTypes.func.isRequired,
+};

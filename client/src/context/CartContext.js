@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 export const CartContext = createContext();
 
@@ -6,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const savedCartItems = localStorage.getItem('cartItems');
+    const savedCartItems = localStorage.getItem("cartItems");
     if (savedCartItems) {
       setCartItems(JSON.parse(savedCartItems));
     }
@@ -14,18 +15,20 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const existingProductIndex = prevItems.findIndex(item => item._id === product._id);
+      const existingProductIndex = prevItems.findIndex(
+        (item) => item._id === product._id,
+      );
       let updatedItems;
       if (existingProductIndex >= 0) {
-        updatedItems = prevItems.map((item, index) => 
-          index === existingProductIndex 
-          ? { ...item, quantity: item.quantity + 1 } 
-          : item
+        updatedItems = prevItems.map((item, index) =>
+          index === existingProductIndex
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
         );
       } else {
         updatedItems = [...prevItems, { ...product, quantity: 1 }];
       }
-      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       return updatedItems;
     });
   };
@@ -33,19 +36,25 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (index) => {
     setCartItems((prevItems) => {
       const updatedItems = prevItems.filter((_, i) => i !== index);
-      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       return updatedItems;
     });
   };
 
   const clearCart = () => {
     setCartItems([]);
-    localStorage.removeItem('cartItems');
+    localStorage.removeItem("cartItems");
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
+};
+
+CartProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

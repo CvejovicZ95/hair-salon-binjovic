@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllServicesController, addServiceController, updateServiceController, deleteServiceController } from "../controllers/serviceController.js"
+import { getAllServicesController, addServiceController, updateServiceController, deleteServiceController } from '../controllers/serviceController.js'
 import { authenticateToken } from '../middlware/authToken.js'
 
 export const serviceRouter = express.Router()

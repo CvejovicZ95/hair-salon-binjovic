@@ -1,13 +1,13 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const serviceSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   price: {
     type: Number,
-    required: true,
+    required: true
   },
   category: {
     type: String,
@@ -22,19 +22,19 @@ const serviceSchema = new mongoose.Schema({
       'Nadogradnja',
       'Tretmani'
     ],
-    required: true,
+    required: true
   },
   deleted: {
     type: Boolean,
-    required: true,
-  },
+    required: true
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
   }
-});
+})
 
-const Service = mongoose.model('Service', serviceSchema);
+const Service = mongoose.model('Service', serviceSchema)
 
-export { Service };
+export { Service }

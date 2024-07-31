@@ -13,21 +13,30 @@ import "./Products.scss";
 import { UpdateProductForm } from "./UpdateProductForm";
 
 export const Products = () => {
-  const { products, loading, error, createProductHandler, updateProductHandler, markProductAsOnlineHandler, markProductAsSoldHandler, deleteProductHandler } = useGetProducts();
+  const {
+    products,
+    loading,
+    error,
+    createProductHandler,
+    updateProductHandler,
+    markProductAsOnlineHandler,
+    markProductAsSoldHandler,
+    deleteProductHandler,
+  } = useGetProducts();
   const { addToCart } = useContext(CartContext);
   const { authUser } = useAuthContext();
 
-  const [selectedCategory, setSelectedCategory] = useState('kerastase');
-  const [updatedName, setUpdatedName] = useState('');
-  const [updatedPreparate, setUpdatedPreparate] = useState('');
-  const [updatedQuantity, setUpdatedQuantity] = useState('');
-  const [updatedPrice, setUpdatedPrice] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("kerastase");
+  const [updatedName, setUpdatedName] = useState("");
+  const [updatedPreparate, setUpdatedPreparate] = useState("");
+  const [updatedQuantity, setUpdatedQuantity] = useState("");
+  const [updatedPrice, setUpdatedPrice] = useState("");
   const [updatedInStock, setUpdatedInStock] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const groupProductsByCategoryName = (products) => {
     const groupedProducts = {};
-    products.forEach(product => {
+    products.forEach((product) => {
       const categoryName = product.name;
       if (!groupedProducts[categoryName]) {
         groupedProducts[categoryName] = [];
@@ -54,7 +63,9 @@ export const Products = () => {
   };
 
   const handleDeleteProduct = async (productId) => {
-    const confirmed = window.confirm('Da li ste sigurni da želite da obrišete proizvod?');
+    const confirmed = window.confirm(
+      "Da li ste sigurni da želite da obrišete proizvod?",
+    );
     if (confirmed) {
       try {
         await deleteProductHandler(productId);
@@ -76,7 +87,14 @@ export const Products = () => {
   const handleSaveUpdate = async () => {
     if (!selectedProduct) return;
     try {
-      await updateProductHandler(selectedProduct._id, updatedName, updatedPreparate, updatedQuantity, updatedPrice, updatedInStock);
+      await updateProductHandler(
+        selectedProduct._id,
+        updatedName,
+        updatedPreparate,
+        updatedQuantity,
+        updatedPrice,
+        updatedInStock,
+      );
       setSelectedProduct(null);
     } catch (error) {
       toast.error(error.message);
@@ -91,7 +109,7 @@ export const Products = () => {
         <Logo2 />
         <Shopcart />
       </div>
-      {authUser && (<ProductUploadForm handleSubmit={createProductHandler} />)}
+      {authUser && <ProductUploadForm handleSubmit={createProductHandler} />}
       <h1>PREPARATI</h1>
       <div className="categories">
         <select
@@ -100,8 +118,10 @@ export const Products = () => {
           className="category-select"
         >
           <option value="kerastase">Molimo izaberite kategoriju</option>
-          {Object.keys(groupedProducts).map(categoryName => (
-            <option key={categoryName} value={categoryName}>{categoryName}</option>
+          {Object.keys(groupedProducts).map((categoryName) => (
+            <option key={categoryName} value={categoryName}>
+              {categoryName}
+            </option>
           ))}
         </select>
       </div>
@@ -112,53 +132,78 @@ export const Products = () => {
           <p>Error fetching products.</p>
         ) : (
           <div className="products-list">
-            {groupedProducts[selectedCategory] && groupedProducts[selectedCategory].map(product => (
-              <div
-                key={product._id}
-                className={`product-item ${!product.inStock ? 'out-of-stock' : ''}`}
-              >
-                <p>{product.preparate} {product.quantity}</p>
-                <p>{product.price} RSD</p>
-                <button
-                  onClick={() => handleAddToCart(product)}
-                  className="buy-btn"
-                  disabled={!product.inStock}
+            {groupedProducts[selectedCategory] &&
+              groupedProducts[selectedCategory].map((product) => (
+                <div
+                  key={product._id}
+                  className={`product-item ${!product.inStock ? "out-of-stock" : ""}`}
                 >
-                  {product.inStock ? 'Naruči' : 'Nema na stanju'}
-                </button>
-                {authUser && (
-                  <>
-                    <div>
-                      {product.inStock ? (
-                        <button className="inStock-button" onClick={() => handleMarkProductAsSold(product._id)}>Nema na stanju</button>
-                      ) : (
-                        <button className="inStock-button" onClick={() => handleMarkProductAsOnline(product._id)}>Na stanju</button>
-                      )}
+                  <p>
+                    {product.preparate} {product.quantity}
+                  </p>
+                  <p>{product.price} RSD</p>
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className="buy-btn"
+                    disabled={!product.inStock}
+                  >
+                    {product.inStock ? "Naruči" : "Nema na stanju"}
+                  </button>
+                  {authUser && (
+                    <>
+                      <div>
+                        {product.inStock ? (
+                          <button
+                            className="inStock-button"
+                            onClick={() => handleMarkProductAsSold(product._id)}
+                          >
+                            Nema na stanju
+                          </button>
+                        ) : (
+                          <button
+                            className="inStock-button"
+                            onClick={() =>
+                              handleMarkProductAsOnline(product._id)
+                            }
+                          >
+                            Na stanju
+                          </button>
+                        )}
+                      </div>
+                      <button
+                        className="delete-product-button"
+                        onClick={() => handleDeleteProduct(product._id)}
+                      >
+                        Obriši
+                      </button>
+                      <button
+                        className="update-product-button"
+                        onClick={() => handleUpdate(product)}
+                      >
+                        Uredi
+                      </button>
+                    </>
+                  )}
+                  {selectedProduct && selectedProduct._id === product._id && (
+                    <div className="update-form-container">
+                      <UpdateProductForm
+                        product={selectedProduct}
+                        updatedName={updatedName}
+                        updatedPreparate={updatedPreparate}
+                        updatedQuantity={updatedQuantity}
+                        updatedPrice={updatedPrice}
+                        updatedInStock={updatedInStock}
+                        setUpdatedName={setUpdatedName}
+                        setUpdatedPreparate={setUpdatedPreparate}
+                        setUpdatedQuantity={setUpdatedQuantity}
+                        setUpdatedPrice={setUpdatedPrice}
+                        setUpdatedInStock={setUpdatedInStock}
+                        handleSaveUpdate={handleSaveUpdate}
+                      />
                     </div>
-                    <button className="delete-product-button" onClick={() => handleDeleteProduct(product._id)}>Obriši</button>
-                    <button className="update-product-button" onClick={() => handleUpdate(product)}>Uredi</button>
-                  </>
-                )}
-                {selectedProduct && selectedProduct._id === product._id && (
-                  <div className="update-form-container">
-                    <UpdateProductForm
-                      product={selectedProduct}
-                      updatedName={updatedName}
-                      updatedPreparate={updatedPreparate}
-                      updatedQuantity={updatedQuantity}
-                      updatedPrice={updatedPrice}
-                      updatedInStock={updatedInStock}
-                      setUpdatedName={setUpdatedName}
-                      setUpdatedPreparate={setUpdatedPreparate}
-                      setUpdatedQuantity={setUpdatedQuantity}
-                      setUpdatedPrice={setUpdatedPrice}
-                      setUpdatedInStock={setUpdatedInStock}
-                      handleSaveUpdate={handleSaveUpdate}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
           </div>
         )}
       </div>

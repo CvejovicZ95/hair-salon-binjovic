@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import { getAllImages, deletePhoto } from "../api/galleryApi";
 
 export const useGetImages = () => {
-  const [images, setImages] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchPhotos = async () => {
       setLoading(true);
-      try{
-        const data = await getAllImages()
-        setImages(data)
+      try {
+        const data = await getAllImages();
+        setImages(data);
       } catch (error) {
-        toast.error(error.message)
+        toast.error(error.message);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     };
-    fetchPhotos()
-  },[images]);
+    fetchPhotos();
+  }, [images]);
 
   const handleDeleteImage = async (id) => {
     try {
@@ -32,6 +32,6 @@ export const useGetImages = () => {
       toast.error(error.message);
     }
   };
-  
+
   return { loading, images, handleDeleteImage };
 };

@@ -24,7 +24,7 @@ export const Header = () => {
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="video-container">
         <video autoPlay muted loop id="video-bg">
-          <source src="video/background.mp4" type="video/mp4" />
+          <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

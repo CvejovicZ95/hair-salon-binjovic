@@ -1,15 +1,15 @@
-import { Gallery } from "../models/gallerySchema.js"
+import { Gallery } from '../models/gallerySchema.js'
 import { logger } from '../../logger.js'
-import multer from "multer"
+import multer from 'multer'
 
-import { getAllImages, deleteImage } from "../service/galleryService.js"
+import { getAllImages, deleteImage } from '../service/galleryService.js'
 
-export const getAllImagesController = async (req,res) => {
+export const getAllImagesController = async (req, res) => {
   try {
     const allImages = await getAllImages()
     res.status(200).json(allImages)
   } catch (error) {
-    res.status(500).json({ error: 'Server error'})
+    res.status(500).json({ error: 'Server error' })
   }
 }
 
@@ -24,19 +24,19 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage }).single('image')
 
-export const uploadImageToGallery = async (req,res) => {
-  try{
+export const uploadImageToGallery = async (req, res) => {
+  try {
     upload(req, res, async function (err) {
-      if( err instanceof multer.MulterError) {
+      if (err instanceof multer.MulterError) {
         logger.error('Error uploading photo')
-        return res.status(400).json({ message: 'Error uploading photo'})
+        return res.status(400).json({ message: 'Error uploading photo' })
       } else if (err) {
         logger.error('Server error uploading photo')
-        return res.status(500).json({ message: 'Server error uploading photo'})
+        return res.status(500).json({ message: 'Server error uploading photo' })
       }
 
       const { alt, category } = req.body
-      const imagePath = req.file.filename 
+      const imagePath = req.file.filename
 
       const newImage = new Gallery({
         imagePath,
@@ -58,7 +58,7 @@ export const deleteImageController = async (req, res) => {
   try {
     const imageId = req.params.id
     await deleteImage(imageId)
-    res.status(200).json({ message: 'Image is deleted successfully from gallery'})
+    res.status(200).json({ message: 'Image is deleted successfully from gallery' })
   } catch (error) {
     res.status(500).json('Server error')
   }

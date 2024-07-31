@@ -6,4 +6,4 @@ export const galleryRouter = express.Router()
 
 galleryRouter.get('/gallery', getAllImagesController)
 galleryRouter.post('/gallery', authenticateToken, uploadImageToGallery)
-galleryRouter.delete('/gallery/:id', authenticateToken, deleteImageController )
+galleryRouter.delete('/gallery/:id', authenticateToken, deleteImageController)

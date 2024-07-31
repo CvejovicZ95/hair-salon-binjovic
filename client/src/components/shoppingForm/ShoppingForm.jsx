@@ -14,10 +14,10 @@ export const ShoppingForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    city:"",
-    postalCode:"",
+    city: "",
+    postalCode: "",
     address: "",
-    phone: ""
+    phone: "",
   });
 
   // eslint-disable-next-line
@@ -80,17 +80,17 @@ export const ShoppingForm = () => {
       postalCode: formData.postalCode,
       address: formData.address,
       phoneNumber: formData.phone,
-      productDetails: cartItems.map(item => ({
+      productDetails: cartItems.map((item) => ({
         productId: item._id,
-        quantity: item.quantity
-      }))
+        quantity: item.quantity,
+      })),
     };
 
     try {
       await createOrder(orderData);
       toast.success("Porudžbina je uspešno kreirana!");
       clearCart();
-      //if u wanna navigate add timeout 
+      //if u wanna navigate add timeout
     } catch (error) {
       toast.error("Došlo je do greške prilikom slanja porudžbine");
     }
@@ -103,88 +103,96 @@ export const ShoppingForm = () => {
       {/*{cartItems.length === 0 ? (
         <p>Korpa je prazna</p>
       ) : (*/}
-        <div className="cart-items">
-          <form className="order-form" onSubmit={handleSubmit}>
-            <h2>Poručivanje na adresu</h2>
-            <label>
-              Ime i prezime:
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                
-              />
-            </label>
-            <label>
-              Email:
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                
-              />
-            </label>
-            <label>
-              Grad:
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                
-              />
-            </label>
-            <label>
-              Poštanski broj:
-              <input
-                type="number"
-                name="postalCode"
-                value={formData.postalCode}
-                onChange={handleChange}
-                
-              />
-            </label>
-            <label>
-              Adresa:
-              <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                
-              />
-            </label>
-            <label>
-              Broj telefona:
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </label>
-            <div className="cart-items-list">
-              <h3>Izabrani proizvodi:</h3>
-              {cartItems.map((item, index) => (
-                <div key={index} className="cart-item">
-                  <p>{item.preparate} ({item.quantity} kom)</p>
-                  <p>{item.price} RSD</p>
-                  <button onClick={() => removeFromCart(index)} className="remove-btn">Ukloni</button>
-                </div>
-              ))}
-            </div>
-            <div className="cart-total">
-              <h2>Ukupno: {totalPrice} RSD</h2>
-            </div>
-            <p className="delivery-note">Napomena: Trošak dostave plaća korisnik.</p>
-            <button type="submit" className="submit-btn">Pošalji porudžbinu</button>
-          </form>
-          <ToastContainer/>
-        </div>
-     {/* )} */}
-      <Link to={"/products"}><button className="back-to-products-btn">Nazad na preparate</button></Link>
+      <div className="cart-items">
+        <form className="order-form" onSubmit={handleSubmit}>
+          <h2>Poručivanje na adresu</h2>
+          <label>
+            Ime i prezime:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Grad:
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Poštanski broj:
+            <input
+              type="number"
+              name="postalCode"
+              value={formData.postalCode}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Adresa:
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Broj telefona:
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </label>
+          <div className="cart-items-list">
+            <h3>Izabrani proizvodi:</h3>
+            {cartItems.map((item, index) => (
+              <div key={index} className="cart-item">
+                <p>
+                  {item.preparate} ({item.quantity} kom)
+                </p>
+                <p>{item.price} RSD</p>
+                <button
+                  onClick={() => removeFromCart(index)}
+                  className="remove-btn"
+                >
+                  Ukloni
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="cart-total">
+            <h2>Ukupno: {totalPrice} RSD</h2>
+          </div>
+          <p className="delivery-note">
+            Napomena: Trošak dostave plaća korisnik.
+          </p>
+          <button type="submit" className="submit-btn">
+            Pošalji porudžbinu
+          </button>
+        </form>
+        <ToastContainer />
+      </div>
+      {/* )} */}
+      <Link to={"/products"}>
+        <button className="back-to-products-btn">Nazad na preparate</button>
+      </Link>
       <Footer />
     </div>
   );

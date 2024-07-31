@@ -7,7 +7,7 @@ export const getAllImages = async () => {
     return allImages
   } catch (error) {
     logger.error('Error fetching images from gallery', error.message)
-    throw new Error ('Error fetching images')
+    throw new Error('Error fetching images')
   }
 }
 

@@ -3,6 +3,6 @@ import { registerAdmin, loginAdmin, logoutAdmin } from '../controllers/adminCont
 
 export const adminRouter = express.Router()
 
-adminRouter.post('/registerAdmin',registerAdmin)
+adminRouter.post('/registerAdmin', registerAdmin)
 adminRouter.post('/loginAdmin', loginAdmin)
-adminRouter.post('/logoutAdmin', logoutAdmin) 
+adminRouter.post('/logoutAdmin', logoutAdmin)

@@ -4,7 +4,7 @@ import { authenticateToken } from '../middlware/authToken.js'
 
 export const productRouter = express.Router()
 
-productRouter.get('/products',getAllProductsController)
+productRouter.get('/products', getAllProductsController)
 productRouter.post('/products', authenticateToken, uploadProductController)
 productRouter.put('/product/:id', authenticateToken, updateProductController)
 productRouter.put('/product/:id/sold', authenticateToken, markProductAsSoldController)

@@ -4,7 +4,7 @@ import { MdClose } from "react-icons/md";
 import { Logo } from "../../logo/Logo";
 import { scrollToTop } from "../../../hooks/useScrollToTop";
 import { useAuthContext } from "../../../context/authContext";
-import "./Nav.scss"
+import "./Nav.scss";
 
 export const Nav = () => {
   const { authUser } = useAuthContext();
@@ -28,7 +28,7 @@ export const Nav = () => {
         <Logo />
         <Link to={"/gallery"}>
           <img
-            src="gallery.png"
+            src="/gallery.png"
             width={"250px"}
             alt="gallery"
             className="gallery"
@@ -51,15 +51,30 @@ export const Nav = () => {
       </div>
       <nav className={`nav-bar ${isOpen ? "open" : ""}`}>
         <ul>
-          <Link to={"/"}><li onClick={() => handleNavClick("salon")}>Salon</li></Link>
-          <Link to={"/"}><li onClick={() => handleNavClick("services")}>Usluge</li></Link>
-          <Link to={"/"}><li onClick={() => handleNavClick("team")}>Naš Tim</li></Link>
-          <Link to={"/"}><li onClick={() => handleNavClick("footer")}>Kontakt</li></Link>
+          <Link to={"/"}>
+            <li onClick={() => handleNavClick("salon")}>Salon</li>
+          </Link>
+          <Link to={"/"}>
+            <li onClick={() => handleNavClick("services")}>Usluge</li>
+          </Link>
+          <Link to={"/"}>
+            <li onClick={() => handleNavClick("team")}>Naš Tim</li>
+          </Link>
+          <Link to={"/"}>
+            <li onClick={() => handleNavClick("footer")}>Kontakt</li>
+          </Link>
 
-          <Link to={"/products"}><li className="buy-product" onClick={scrollToTop}>Kupi Preparat</li></Link>
+          <Link to={"/products"}>
+            <li className="buy-product" onClick={scrollToTop}>
+              Kupi Preparat
+            </li>
+          </Link>
 
-          {authUser && (<Link to={"/orderInfo"}><li className="buy-product">Porudžbine</li></Link>)}
-
+          {authUser && (
+            <Link to={"/orderInfo"}>
+              <li className="buy-product">Porudžbine</li>
+            </Link>
+          )}
         </ul>
       </nav>
     </div>

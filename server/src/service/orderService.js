@@ -1,34 +1,34 @@
-import { Order } from "../models/orderSchema.js";
-import { Product } from "../models/productSchema.js";
-import { logger } from "../../logger.js";
-import { sendOrderConfirmation } from "../../mailgun.js";
+import { Order } from '../models/orderSchema.js'
+import { Product } from '../models/productSchema.js'
+import { logger } from '../../logger.js'
+import { sendOrderConfirmation } from '../../mailgun.js'
 
 export const createOrder = async (name, email, city, postalCode, address, phoneNumber, productDetails, processed, sent) => {
-    try {
-        const productIds = productDetails.map(detail => detail.productId);
-        const products = await Product.find({ '_id': { $in: productIds } });
+  try {
+    const productIds = productDetails.map(detail => detail.productId)
+    const products = await Product.find({ _id: { $in: productIds } })
 
-        if (products.length !== productIds.length) {
-            throw new Error('One or more products not found');
-        }
+    if (products.length !== productIds.length) {
+      throw new Error('One or more products not found')
+    }
 
-        const productMap = new Map(products.map(p => [p._id.toString(), p]));
+    const productMap = new Map(products.map(p => [p._id.toString(), p]))
 
-        const newOrder = new Order({
-            name,
-            email,
-            city,
-            postalCode,
-            address,
-            phoneNumber,
-            products: productDetails,
-            processed,
-            sent
-        });
+    const newOrder = new Order({
+      name,
+      email,
+      city,
+      postalCode,
+      address,
+      phoneNumber,
+      products: productDetails,
+      processed,
+      sent
+    })
 
-        await newOrder.save();
+    await newOrder.save()
 
-        const orderDetails = `
+    const orderDetails = `
         <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
         <h2 style="color: #2e6da4; border-bottom: 2px solid #2e6da4; padding-bottom: 10px;">Broj porudžbine: ${newOrder._id}</h2>
         
@@ -43,68 +43,66 @@ export const createOrder = async (name, email, city, postalCode, address, phoneN
         <h3 style="color: #2e6da4; margin-top: 20px;">Naručeni preparati:</h3>
         <ul style="list-style-type: none; padding-left: 0;">
             ${newOrder.products.map(p => {
-                const product = productMap.get(p.productId.toString());
+                const product = productMap.get(p.productId.toString())
                 return `
                     <li style="background: #f9f9f9; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
                         ${product ? `${product.preparate}: ${product.price} RSD (po preparatu) - količina: ${p.quantity}` : 'Nepoznat proizvod'}
                     </li>
-                `;
+                `
             }).join('')}
         </ul>
         
         <h2 style="color: #2e6da4; text-align: center; margin-top: 30px;">Hvala Vam na ukazanom poverenju</h2>
         <h3 style="color: #2e6da4; text-align: center;">Vaš 'Hair Salon Binjovic'</h3>
         </div>
-    `;
+    `
 
+    await sendOrderConfirmation({ email: newOrder.email, details: orderDetails })
 
-
-        await sendOrderConfirmation({ email: newOrder.email, details: orderDetails });
-
-        logger.info('New order created successfully');
-        return newOrder;
-    } catch (error) {
-        logger.error('Error creating order', error.message);
-        throw new Error('Error creating order');
-    }
+    logger.info('New order created successfully')
+    return newOrder
+  } catch (error) {
+    logger.error('Error creating order', error.message)
+    throw new Error('Error creating order')
+  }
 }
 
 export const getAllOrders = async () => {
-    try {
-        const allOrders = await Order.find().populate('products.productId');
-        return allOrders;
-    } catch (error) {
-        logger.error('Error getting all orders', error.message);
-        throw new Error('Error getting all orders');
-    }
+  try {
+    const allOrders = await Order.find().populate('products.productId')
+    return allOrders
+  } catch (error) {
+    logger.error('Error getting all orders', error.message)
+    throw new Error('Error getting all orders')
+  }
 }
 
 export const makeOrderProcessed = async (orderId) => {
-    try {
-        const order = await Order.findById(orderId)
+  try {
+    const order = await Order.findById(orderId)
 
-        if (!order) {
-            throw new Error('Order not found')
-        }
-        order.processed = true
-        await order.save()
-    } catch (error) {
-        logger.error('Error making order processed', error.message)
-        throw new Error('Error making order processed')
+    if (!order) {
+      throw new Error('Order not found')
     }
+    order.processed = true
+    await order.save()
+  } catch (error) {
+    logger.error('Error making order processed', error.message)
+    throw new Error('Error making order processed')
+  }
 }
 
 export const makeOrderAsSent = async (orderId) => {
-    try {
-        const order = await Order.findById(orderId)
+  try {
+    const order = await Order.findById(orderId)
 
-        if (!order) {
-            throw new Error('Order not found')
-        }
-        order.sent = true
-        await order.save()
-    } catch (error) {
-        logger.error('Error making order as sent', error.message)
-        throw new Error('Error making order as sent')
+    if (!order) {
+      throw new Error('Order not found')
     }
+    order.sent = true
+    await order.save()
+  } catch (error) {
+    logger.error('Error making order as sent', error.message)
+    throw new Error('Error making order as sent')
+  }
 }

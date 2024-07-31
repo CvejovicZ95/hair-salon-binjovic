@@ -15,7 +15,7 @@ This project involves creating a visually appealing website for the hair salon "
   - Intuitive and visually appealing user interface for an enhanced user experience.
 
 - **Order Notifications:**
-  Integration with Mailgun to send order confirmations to users via email. This ensures that customers receive immediate and reliable order confirmations directly to their inbox.
+  - Integration with Mailgun to send order confirmations to users via email. This ensures that customers receive immediate and reliable order confirmations directly to their inbox.
   
 - **Owner/Manager:**
   - Log in

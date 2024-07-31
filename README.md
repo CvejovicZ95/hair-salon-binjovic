@@ -1,4 +1,4 @@
-# Hair Salon Binjovic
+# Hair Salon "Binjovic"
 
 ## Project Overview
 

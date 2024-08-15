@@ -20,6 +20,7 @@ export const loginAdmin = async (username, password) => {
     throw new Error(error.message || "Neuspešna prijava");
   }
 };
+
 export const logoutAdmin = async () => {
   try {
     const res = await fetch(`${apiUrl}/api/logoutAdmin`, {

@@ -35,6 +35,19 @@ This project involves creating a visually appealing website for the hair salon "
 - MongoDB
 - SCSS
 
+## Prerequisites / Dependencies
+
+- Node v20.11.1
+- npm 10.2.0
+- MongoDB: You need a running instance of MongoDB.
+
+## Installation and Setup
+
+- git clone <https://github.com/CvejovicZ95/hair-salon-binjovic.git>
+- Install dependencies for both client and server:
+- cd server && npm install
+- cd client && npm install
+
 ## Environment Variables (Server Folder)
 
 - `DATABASE_URL`: MongoDB connection string  
@@ -53,6 +66,7 @@ This project involves creating a visually appealing website for the hair salon "
 - **Server:**
   - `nodemon server`
 - **Client:**
+  - `npm run build:dev`
   - `npm start`
 
 ## Additional Notes
